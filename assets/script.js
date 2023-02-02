@@ -6,7 +6,6 @@
 </form> */
 var OMDBKey = "407da853";
 var counter = 0;
-var youtubeApiKey = "AIzaSyAe24J-pt7WWNHFvLHpof0uEOP3liLg4dk";
 var videoIdo;
 
 function OMDBInfoRequest() {
