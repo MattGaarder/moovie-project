@@ -4,9 +4,9 @@
       <input type="text" id="movie-input"><br>
       <input id="add-movie" type="submit" value="Add a Movie!">
 </form> */
-var OMDBKey = "407da853";
+var OMDBKey = "60b0dff6";
 var counter = 0;
-var youtubeApiKey = "AIzaSyAe24J-pt7WWNHFvLHpof0uEOP3liLg4dk";
+var youtubeApiKey = "AIzaSyCb7i5vZ7WVgkt-Ki0a4kXG63uy3ZTYHps";
 var videoIdo;
 
 function OMDBInfoRequest() {
