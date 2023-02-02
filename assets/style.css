@@ -52,6 +52,12 @@ body {
     
 }
 
+#player {
+    /* position: relative; */
+    width: 900px;
+    height: 300px;
+}
+
 img {
     display: flex;
     flex-direction: row;
@@ -64,6 +70,8 @@ img {
 p {
     display: flex;
     flex-direction: column;
+    align-items: center; 
+    justify-content: center;
     padding: 0.15%;
     margin: 0%;
 }

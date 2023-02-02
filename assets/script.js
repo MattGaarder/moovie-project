@@ -22,17 +22,19 @@ function OMDBInfoRequest() {
 };
 
 $("#find-movie").on("click", function(event) {
-    $("<div class='player'>")
+    
     event.preventDefault();
     OMDBInfoRequest();
-    getTrailer();
+    getTrailer()
 });
 
-
+var discoverDiv;
+var detailsDiv;
+var playerDiv;
 function displayInfo(arbitrary) {
     // console.log("hey");
-    
-    var discoverDiv = $("<div class='discover'>");
+    playerDiv = $("<div id='player'>")
+    discoverDiv = $("<div class='discover'>");
     var imageURL = arbitrary.Poster;
     var moviePoster = $("<img>").attr("src", imageURL);
     discoverDiv.append(moviePoster);
@@ -46,9 +48,10 @@ function displayInfo(arbitrary) {
         // console.log(arbitrary[key]);
         counter++;
         discoverDiv.append(detailsDiv);
-        
+        discoverDiv.append(playerDiv);
     }
     $("#movies-view").append(discoverDiv);
+    getTrailer();
 }
 function getTrailer() {
     var queryParam = $("#find-input").val();
@@ -63,7 +66,7 @@ function getTrailer() {
         // console.log(youtubeObject);
         console.log("this works");
         onYouTubeIframeAPIReady(youtubeObject)
-        })
+        })    
 };
     
     
@@ -79,7 +82,7 @@ var player;
 function onYouTubeIframeAPIReady(youtubeObject) {
     console.log(youtubeObject);
     videoIdo = youtubeObject.items[0].id.videoId;
-    discoverDiv.append(playerDiv);player = new YT.Player('player', {
+    player = new YT.Player('player', {
     height: '390',
     width: '640',
     videoId: videoIdo,
@@ -87,6 +90,7 @@ function onYouTubeIframeAPIReady(youtubeObject) {
     playerVars: {
     'playsinline': 1
     },
+    
     // events: {
     // 'onReady': onPlayerReady,
     // 'onStateChange': onPlayerStateChange
