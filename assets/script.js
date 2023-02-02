@@ -22,20 +22,22 @@ function OMDBInfoRequest() {
 };
 
 $("#find-movie").on("click", function(event) {
+    $("<div class='player'>")
     event.preventDefault();
     OMDBInfoRequest();
     getTrailer();
-   });
+});
 
-   
+
 function displayInfo(arbitrary) {
     // console.log("hey");
+    
     var discoverDiv = $("<div class='discover'>");
     var imageURL = arbitrary.Poster;
     var moviePoster = $("<img>").attr("src", imageURL);
     discoverDiv.append(moviePoster);
     var detailsDiv = $("<div class='details'>");
-    var playerDiv = $("<div class='player'>")
+    
     const keys = Object.keys(arbitrary);
     for (const key of keys) {
         if (counter === 13) break;
@@ -44,25 +46,25 @@ function displayInfo(arbitrary) {
         // console.log(arbitrary[key]);
         counter++;
         discoverDiv.append(detailsDiv);
-        discoverDiv.append(playerDiv);
+        
     }
     $("#movies-view").append(discoverDiv);
 }
-    function getTrailer() {
-        var queryParam = $("#find-input").val();
-        var queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=" + queryParam + " trailer&key=" + youtubeApiKey;
-        console.log(queryParam)
-        $.ajax({
-            url: queryURL,
-            method: "GET"
-          }).then(function(youtubeObject) {
-            videoIdo = youtubeObject.items[0].id.videoId;
-            // console.log(videoIdo);
-            // console.log(youtubeObject);
-            console.log("this works");
-            onYouTubeIframeAPIReady(youtubeObject)
-          })
-    };
+function getTrailer() {
+    var queryParam = $("#find-input").val();
+    var queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=" + queryParam + " trailer&key=" + youtubeApiKey;
+    console.log(queryParam)
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+        }).then(function(youtubeObject) {
+        videoIdo = youtubeObject.items[0].id.videoId;
+        // console.log(videoIdo);
+        // console.log(youtubeObject);
+        console.log("this works");
+        onYouTubeIframeAPIReady(youtubeObject)
+        })
+};
     
     
     
@@ -77,7 +79,7 @@ var player;
 function onYouTubeIframeAPIReady(youtubeObject) {
     console.log(youtubeObject);
     videoIdo = youtubeObject.items[0].id.videoId;
-player = new YT.Player('player', {
+    discoverDiv.append(playerDiv);player = new YT.Player('player', {
     height: '390',
     width: '640',
     videoId: videoIdo,
