@@ -21,3 +21,33 @@
 
         <script src="public-keys.js"></script>
         <script src="project.js"></script>
+
+
+1. Clicking discover button calls OMDB function. DONE
+
+2. OMDB function returns object, info from which should be displayed on the page (title, year, plot, poster) in generated div. DONE
+
+3. Discover also calls youtube function. DONE
+
+4. This function returns youtube object- including videoID DONE
+
+5. Video ID from this function is stored in a variable that is inserted into iFrame video embed DONE
+(lets start off with this a MVP). I want to use the API to retrieve the trailers and display them in a visually appealing way, such as in a grid or a carousel.
+
+6. Make all this information appear presentable on the page. NOT YET. Delegate.
+
+7. Applies object keys as classes to generated p elements to apply styles in CSS. DONE 
+
+8. Add a "to watchlist" button in div to get information saved to local storage, and to add to a separate watchlist. DONE
+
+9. Add a "seen" button that adds the film to a "seen" list (again saving to local storage). DONE
+
+10. Make it so that multiple films can be displayed when clicking search button- prepended to previous film. DONE
+
+11. Create a "get a suggestion" button that will give the user a random film they can either add or move on from.
+
+12. Create a rotten tomatoes section that shows whether the film is fresh or rotten.
+
+13. Create a clear list function so that when movies are added to either list there are no repeat values. DONE
+
+14. CSS styles on watch and seen list
