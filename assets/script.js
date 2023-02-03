@@ -1,4 +1,4 @@
-var OMDBKey = "407da853";
+
 var videoIdo;
 var seenList = $("#seenList");
 var watchList = $("#watchList");
