@@ -44,6 +44,15 @@ body {
     /* background-color: #fff8f7; */
 }
 
+#seenListDiv {
+    display: inline-block;
+    width: 40%;
+}
+
+#watchListDiv {
+    display: inline-block;
+    width: 40%;
+}
 
 .details {
     /* display: flex;

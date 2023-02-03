@@ -38,13 +38,16 @@
 
 7. Applies object keys as classes to generated p elements to apply styles in CSS. DONE 
 
-8. Add a "to watchlist" button in div to get information saved to local storage, and to add to a separate watchlist. 
+8. Add a "to watchlist" button in div to get information saved to local storage, and to add to a separate watchlist. DONE
 
-9. Add a "seen" button that adds the film to a "seen" list (again saving to local storage).
+9. Add a "seen" button that adds the film to a "seen" list (again saving to local storage). DONE
 
-10. Make it so that multiple films can be displayed when clicking search button- prepended to previous film.
+10. Make it so that multiple films can be displayed when clicking search button- prepended to previous film. DONE
 
 11. Create a "get a suggestion" button that will give the user a random film they can either add or move on from.
 
 12. Create a rotten tomatoes section that shows whether the film is fresh or rotten.
 
+13. Create a clear list function so that when movies are added to either list there are no repeat values.
+
+14. 

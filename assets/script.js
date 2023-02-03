@@ -1,6 +1,7 @@
 var OMDBKey = "407da853";
 var videoIdo;
 var seenList = $("#seenList");
+var watchList = $("#watchList");
 
 $("#find-movie").on("click", function (event) {
     //moving all element generation inside find-movie button
@@ -57,8 +58,11 @@ function appendElements(OMDBCall) {
     detailsDiv.append(buttonDiv);
     buttonDiv.append(watchButton);
     buttonDiv.append(seenButton);
-    seenButton.on('click', function() {
-    moveToSeen(OMDBCall);
+    seenButton.on('click', function () {
+        moveToSeen(OMDBCall);
+    });
+    watchButton.on('click', function () {
+        moveToWatch(OMDBCall);
     });
 }
 
@@ -117,7 +121,28 @@ function createSeenArray() {
 };
 createSeenArray();
 
+function moveToWatch(movieObject) {
+    console.log(movieObject);
+    var watchArray = JSON.parse(localStorage.getItem("watchArray")) || [];
+    for(var i = 0; i < watchArray.length; i++) {
+        if(movieObject.Title === watchArray[i].Title) {
+            return;
+        }
+    }
+        watchArray.push(movieObject);
+        localStorage.setItem("watchArray", JSON.stringify(watchArray));
+        createWatchArray();
+}
 
+function createWatchArray() {
+    var watchArray = JSON.parse(localStorage.getItem("watchArray")) || [];
+    for(var i = 0; i < watchArray.length; i++) {
+        var watchItem = $("<li>");
+        watchItem.text(watchArray[i].Title);
+        watchList.append(watchItem);
+    }
+};
+createWatchArray();
 
 
 
