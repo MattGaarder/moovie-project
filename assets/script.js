@@ -5,7 +5,6 @@
       <input id="add-movie" type="submit" value="Add a Movie!">
 </form> */
 var OMDBKey = "407da853";
-var counter = 0;
 var videoIdo;
 
 function OMDBInfoRequest() {
@@ -41,12 +40,13 @@ function displayInfo(arbitrary) {
     var detailsDiv = $("<div class='details'>");
     
     const keys = Object.keys(arbitrary);
+    let i = 0;
     for (const key of keys) {
-        if (counter === 13) break;
-        var theDeets = $("<p>").text(arbitrary[key])
-        detailsDiv.append(theDeets);
+        if (i === 13) break;
+        var theDeets = $("<p>").text(arbitrary[key]).addClass(key);
         // console.log(arbitrary[key]);
-        counter++;
+        detailsDiv.append(theDeets);
+        i++;
         discoverDiv.append(detailsDiv);
         discoverDiv.append(playerDiv);
     }

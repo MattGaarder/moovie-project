@@ -45,12 +45,36 @@ body {
 }
 
 .details {
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     margin: 0%;
-    padding: 0%;
+    padding: 0%; */
+}
+
+.details p {
+    display: inline;
+    color: gray;
+    width: 80%;
+}
+
+.details p.Rated {
+    display: inline-block;
     
 }
+
+.details p.Plot {
+    display: block;
+    margin: 2%;
+}
+
+.details p.Title {
+    display: inline;
+    font-weight: bold;
+    font-size: 35px;
+    width: 50%;
+    text-align: left;
+}
+
 
 #player {
     /* position: relative; */
@@ -69,16 +93,23 @@ img {
 
 p {
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     align-items: center; 
     justify-content: center;
     padding: 0.15%;
     margin: 0%;
 }
+.details p.Year {
+    display: inline;
+    text-align: right;
+    color: pink;
+    font-size: 25px;
+    width: 50%;
+}
 
 .button-56 {
-  align-items: center;
-  background-color: #fee6e3;
+    align-items: center;
+    background-color: #fee6e3;
   border: 2px solid #111;
   border-radius: 8px;
   box-sizing: border-box;
