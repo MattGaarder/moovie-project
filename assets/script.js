@@ -1,7 +1,5 @@
 // HTML
 
-var counter = 0;
-var youtubeApiKey = "AIzaSyCb7i5vZ7WVgkt-Ki0a4kXG63uy3ZTYHps";
 var videoIdo;
 var seenList = $("#seenList");
 var watchList = $("#watchList");
