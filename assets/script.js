@@ -58,7 +58,8 @@ function displayInfo(arbitrary) {
     buttonDiv.append(seenButton);
     $("#movies-view").append(discoverDiv);
     getTrailer();
-}
+};
+
 function getTrailer() {
     var queryParam = $("#find-input").val();
     var queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=" + queryParam + " trailer&key=" + youtubeApiKey;
@@ -74,9 +75,6 @@ function getTrailer() {
         onYouTubeIframeAPIReady(youtubeObject)
         })    
 };
-    
-    
-    
     var tag = document.createElement('script');
     tag.src = "https://www.youtube.com/iframe_api";
     var firstScriptTag = document.getElementsByTagName('script')[0];
@@ -103,6 +101,16 @@ function onYouTubeIframeAPIReady(youtubeObject) {
     // }
 });
 }
+
+seenButton.on('click', '#seen', moveToSeen);
+watchButton.on('click', '#watch', moveToWatch);
+
+function moveToSeen () {
+    
+}
+
+function moveToWatch
+
 
 // // 4. The API will call this function when the video player is ready.
 // function onPlayerReady(event) {
