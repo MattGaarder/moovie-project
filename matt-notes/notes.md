@@ -48,6 +48,6 @@
 
 12. Create a rotten tomatoes section that shows whether the film is fresh or rotten.
 
-13. Create a clear list function so that when movies are added to either list there are no repeat values.
+13. Create a clear list function so that when movies are added to either list there are no repeat values. DONE
 
-14. 
+14. CSS styles on watch and seen list

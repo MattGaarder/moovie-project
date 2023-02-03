@@ -37,6 +37,10 @@ function displayInfo(OMDBCall) {
     let i = 0;
     for (const key of keys) {
         if (i === 13) break;
+        if (i === 3 || i === 7 || i === 11) {
+            i++;
+            continue;
+        }
         var theDeets = $("<p>").text(OMDBCall[key]).addClass(key);
         detailsDiv.append(theDeets);
         i++;
@@ -106,6 +110,7 @@ function moveToSeen(movieObject) {
             return;
         }
     }
+        clearArray(seenList);
         seenArray.push(movieObject);
         localStorage.setItem("seenArray", JSON.stringify(seenArray));
         createSeenArray();
@@ -128,7 +133,8 @@ function moveToWatch(movieObject) {
         if(movieObject.Title === watchArray[i].Title) {
             return;
         }
-    }
+    }   
+        clearArray(watchList)
         watchArray.push(movieObject);
         localStorage.setItem("watchArray", JSON.stringify(watchArray));
         createWatchArray();
@@ -144,7 +150,9 @@ function createWatchArray() {
 };
 createWatchArray();
 
-
+function clearArray(array) {
+    array.empty();
+}
 
 
 // events: {
