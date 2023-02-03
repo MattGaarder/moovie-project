@@ -32,7 +32,8 @@ var detailsDiv;
 var playerDiv;
 function displayInfo(arbitrary) {
     // console.log("hey");
-    playerDiv = $("<div id='player'>")
+    playerDiv = $("<div id='player'>");
+    buttonDiv = $("<div id='buttonDiv'>");
     discoverDiv = $("<div class='discover'>");
     var imageURL = arbitrary.Poster;
     var moviePoster = $("<img>").attr("src", imageURL);
@@ -50,6 +51,11 @@ function displayInfo(arbitrary) {
         discoverDiv.append(detailsDiv);
         discoverDiv.append(playerDiv);
     }
+    detailsDiv.append(buttonDiv);
+    var seenButton = $("<button id='seen'>");
+    var watchButton = $("<button id='watch'>");
+    buttonDiv.append(watchButton);
+    buttonDiv.append(seenButton);
     $("#movies-view").append(discoverDiv);
     getTrailer();
 }

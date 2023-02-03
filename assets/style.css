@@ -37,12 +37,13 @@ body {
     display: flex;
     flex-direction: row;
     padding: 1em;
-    border-width: 0.2em;
-    border-color: #111;
-    border-style: solid;
-    border-radius: 12px;
+  border: 2px solid #111;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #111;
     /* background-color: #fff8f7; */
 }
+
 
 .details {
     /* display: flex;
@@ -59,7 +60,7 @@ body {
 
 .details p.Rated {
     display: inline-block;
-    
+
 }
 
 .details p.Plot {
@@ -75,6 +76,10 @@ body {
     text-align: left;
 }
 
+button {
+    height: 40px;
+    width: 100px;
+}
 
 #player {
     /* position: relative; */
