@@ -14,7 +14,7 @@ $("#find-movie").on("click", function (event) {
     $("#movies-view").append(discoverDiv);
     event.preventDefault();
     OMDBInfoRequest();
-    getTrailer()
+    // getTrailer()
 });
 
 function OMDBInfoRequest() {
@@ -25,6 +25,13 @@ function OMDBInfoRequest() {
         method: "GET"
     }).then(function (OMDBObject) {
         displayInfo(OMDBObject);
+        movieObject = {
+            Title: OMDBObject.Title,
+            Year: OMDBObject.Year,
+            Poster: OMDBObject.Poster,
+        };
+        console.log(movieObject);
+        getTrailer(movieObject);
     })
 };
 
@@ -56,7 +63,7 @@ function displayInfo(OMDBCall) {
     };
     console.log(movieObject);
     console.log(OMDBCall.Title);
-    appendElements(movieObject);
+
 
 };
 
@@ -74,16 +81,19 @@ function appendElements(OMDBCall) {
     });
 }
 
-function getTrailer() {
-    var queryParam = $("#find-input").val();
+function getTrailer(movieObject) {
+    console.log(movieObject.Title);
+    var queryParam = movieObject.Title;
     var queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=" + queryParam + " trailer&key=" + youtubeApiKey;
-    console.log(queryParam)
     $.ajax({
         url: queryURL,
         method: "GET"
     }).then(function (youtubeObject) {
-        videoIdo = youtubeObject.items[0].id.videoId;
-        onYouTubeIframeAPIReady(youtubeObject)
+        console.log(youtubeObject);
+        movieObject["videoId"] = youtubeObject.items[0].id.videoId;
+        console.log(movieObject);
+        appendElements(movieObject);
+        onYouTubeIframeAPIReady(movieObject)
     })
 };
 
@@ -95,12 +105,11 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 // 3. This function creates an <iframe> (and YouTube player)
 //    after the API code downloads.
 var player;
-function onYouTubeIframeAPIReady(youtubeObject) {
-    videoIdo = youtubeObject.items[0].id.videoId;
+function onYouTubeIframeAPIReady(arbitrary) {
     player = new YT.Player('player', {
         height: '390',
         width: '640',
-        videoId: videoIdo,
+        videoId: arbitrary.videoId,
         playerVars: {
             'playsinline': 1
         },
@@ -153,6 +162,9 @@ function createSeenArray() {
         var seenItem = $("<li>");
         seenItem.text(seenArray[i].Title);
         seenItem.attr("data-title", seenArray[i].Title);
+        seenItem.attr("data-year", seenArray[i].Year);
+        seenItem.attr("data-poster", seenArray[i].Poster);
+        seenItem.attr("data-videoid", seenArray[i].videoId);
         seenItem.append('<button class="btn btn-danger btn-small delete-item-btn">Remove</button>');
         seenList.append(seenItem);
     }
@@ -165,6 +177,9 @@ function createWatchArray() {
         var watchItem = $("<li>");
         watchItem.text(watchArray[i].Title);
         watchItem.attr("data-title", watchArray[i].Title);
+        watchItem.attr("data-year", watchArray[i].Year);
+        watchItem.attr("data-poster", watchArray[i].Poster);
+        watchItem.attr("data-videoid", watchArray[i].videoId);
         watchItem.append('<button class="btn btn-danger btn-small delete-item-btn">Remove</button>');
         watchItem.append('<button class="btn btn-danger btn-small seen-item-btn">Seen</button>');
         watchList.append(watchItem);
