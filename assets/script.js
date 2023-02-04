@@ -208,11 +208,18 @@ function removeItem(event) {
     } 
     localStorage.setItem(whichList + "Array", JSON.stringify(listArray));
     // this function works fine up until this point
-    console.log(whichList + "List");
-    clearArray(whichList + "List");
-    createWatchArray();
-    removeBtn.parent('li').remove();
-    console.log(this);
+    if(whichList === "seen"){
+        clearArray(seenList);
+        createSeenArray();
+    } else {
+        clearArray(watchList);
+        createWatchArray();
+    }
+    // console.log(whichList + "List");
+    
+    // createWatchArray();
+    // removeBtn.parent('li').remove();
+    // console.log(this);
 };
 // I want to create a move to seen button. This will have a moveToSeen function called on click. 
 // The moveToSeen function needs to get the watch array from LocalStorage and find the film with the same key as the data-title of the div that is being clicked on 
