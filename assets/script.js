@@ -196,6 +196,21 @@ watchList.on('click', '.seen-item-btn', moveToSeen);
 
 function removeItem(event) {
     var removeBtn = $(event.target);
+    var whichList = removeBtn.parent().parent().data("list");
+    console.log(whichList); // this logs to either seen or watch depending on the list
+    var listArray = JSON.parse(localStorage.getItem(whichList + "Array"))
+    console.log(listArray);
+    for(var i = 0; i < listArray.length; i++) {
+        if(listArray[i].Title === $(event.target).parent().data("title")){
+            listArray.splice(i, 1);
+            break;
+        }
+    } 
+    localStorage.setItem(whichList + "Array", JSON.stringify(listArray));
+    // this function works fine up until this point
+    console.log(whichList + "List");
+    clearArray(whichList + "List");
+    createWatchArray();
     removeBtn.parent('li').remove();
     console.log(this);
 };
