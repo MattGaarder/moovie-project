@@ -57,7 +57,7 @@ function displayInfo(OMDBCall) {
     console.log(movieObject);
     console.log(OMDBCall.Title);
     appendElements(movieObject);
-    getTrailer();
+
 };
 
 function appendElements(OMDBCall) {
@@ -107,8 +107,21 @@ function onYouTubeIframeAPIReady(youtubeObject) {
     });
 }
 
+// I want to make it so that clicking on any of the list elements gets their info back up in the discover div
+function infoFromListEl() {
+    var movieObject = {
+        Title: $(this).data("title"),
+        Year: $(this).data("year"),
+        Poster: $(this).data("Poster"),
+        VideoID: $(this).data("videoid")
+    }
+    onYouTubeIframeAPIReady(movieObject);
+    displayInfo(movieObject);
+}
 
-// The operands of the conditional operator may be of any type. The first operand is
+
+
+// The operands of the conditional (ternary) operator may be of any type. The first operand is
 // evaluated and interpreted as a boolean. If the value of the first operand is truthy, then
 // the second operand is evaluated, and its value is returned. Otherwise, if the first
 // operand is falsy, then the third operand is evaluated and its value is returned. Only

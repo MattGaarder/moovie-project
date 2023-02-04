@@ -52,7 +52,7 @@
 
 14. CSS styles on watch and seen list
 
-15. Create a seen button on watch list elements so that they get moved to the seen list
+15. Create a seen button on watch list elements so that they get moved to the seen list. DONE
 
 16. Create a delete button on list elements to remove them from their respective lists. DONE
 
@@ -60,4 +60,6 @@
 
 18. Get newly added divs so that they appear inside the discover div and they can be scrolled through
 
-19. Make it so that when removing items from lists also removes them from local storage.
+19. Make it so that when removing items from lists also removes them from local storage. DONE
+
+20. Make it so that clicking on the elements from the watch list or seen list gets their info back up on discover div
