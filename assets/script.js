@@ -40,6 +40,10 @@ function displayInfo(OMDBCall) {
         if (i === 3 || i === 7 || i === 11) {
             i++;
             continue;
+//The continue statement is similar to the break statement. Instead of exiting a loop,
+// however, continue restarts a loop at the next iteration.
+// When the continue statement is executed, the current iteration of the enclosing loop
+// is terminated, and the next iteration begins.
         }
         var theDeets = $("<p>").text(OMDBCall[key]).addClass(key);
         detailsDiv.append(theDeets);
@@ -148,12 +152,9 @@ function createSeenArray() {
     for(var i = 0; i < seenArray.length; i++) {
         var seenItem = $("<li>");
         seenItem.text(seenArray[i].Title);
+        seenItem.attr("data-title", seenArray[i].Title);
         seenItem.append('<button class="btn btn-danger btn-small delete-item-btn">Remove</button>');
         seenList.append(seenItem);
-        //   shoppingListEl.append(shoppingListItemEl);
-        //   // clear the form input element
-        //   $('input[name="shopping-input"]').val('');
-          
     }
 };
 createSeenArray();
@@ -163,11 +164,23 @@ function createWatchArray() {
     for(var i = 0; i < watchArray.length; i++) {
         var watchItem = $("<li>");
         watchItem.text(watchArray[i].Title);
+        watchItem.attr("data-title", watchArray[i].Title);
         watchItem.append('<button class="btn btn-danger btn-small delete-item-btn">Remove</button>');
         watchList.append(watchItem);
     }
 };
 createWatchArray();
+
+
+// I want to create a move to seen button. This will have a moveToSeen function. 
+// The moveToSeen function needs to get the watch array from LocalStorage and find the film with the same key as the div that is being clicked on 
+// To do this the div will already have to have a recognisable data attribute applied to it. 
+// I will have to iterate through the array till the data attribute and the key in the array match
+// Once this is done I will have to store this index in a variable 
+// I will then split? splice? slice? This from the array. 
+// And then get the seen array from local storage and push the film that wants to be moved to the array and then I can call the createSeenArray.
+// First step to do this is to figure out where to apply the data attribute. 
+
 
 function clearArray(array) {
     array.empty();

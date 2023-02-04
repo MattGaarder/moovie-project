@@ -54,8 +54,10 @@
 
 15. Create a seen button on watch list elements so that they get moved to the seen list
 
-16. Create a delete button on list elements to remove them from their respective lists 
+16. Create a delete button on list elements to remove them from their respective lists. DONE
 
 17. Make list elements draggable so that they can be re-ordered 
 
 18. Get newly added divs so that they appear inside the discover div and they can be scrolled through
+
+19. Make it so that when removing items from lists also removes them from local storage.
