@@ -57,8 +57,8 @@ function displayInfo(OMDBCall) {
 };
 
 function appendElements(OMDBCall) {
-    discoverDiv.append(detailsDiv);
     discoverDiv.append(playerDiv);
+    discoverDiv.append(detailsDiv);
     detailsDiv.append(buttonDiv);
     buttonDiv.append(watchButton);
     buttonDiv.append(seenButton);
@@ -102,7 +102,16 @@ function onYouTubeIframeAPIReady(youtubeObject) {
         },
     });
 }
+
+
+// The operands of the conditional operator may be of any type. The first operand is
+// evaluated and interpreted as a boolean. If the value of the first operand is truthy, then
+// the second operand is evaluated, and its value is returned. Otherwise, if the first
+// operand is falsy, then the third operand is evaluated and its value is returned. Only
+// one of the second and third operands is evaluated; never both.
+
 function moveToSeen(movieObject) {
+    
     console.log(movieObject);
     var seenArray = JSON.parse(localStorage.getItem("seenArray")) || [];
     for(var i = 0; i < seenArray.length; i++) {
@@ -116,14 +125,6 @@ function moveToSeen(movieObject) {
         createSeenArray();
 }
 
-function createSeenArray() {
-    var seenArray = JSON.parse(localStorage.getItem("seenArray")) || [];
-    for(var i = 0; i < seenArray.length; i++) {
-        var seenItem = $("<li>");
-        seenItem.text(seenArray[i].Title);
-        seenList.append(seenItem);
-    }
-};
 createSeenArray();
 
 function moveToWatch(movieObject) {
@@ -134,17 +135,32 @@ function moveToWatch(movieObject) {
             return;
         }
     }   
-        clearArray(watchList)
-        watchArray.push(movieObject);
-        localStorage.setItem("watchArray", JSON.stringify(watchArray));
-        createWatchArray();
+    clearArray(watchList)
+    watchArray.push(movieObject);
+    localStorage.setItem("watchArray", JSON.stringify(watchArray));
+    createWatchArray();
 }
+
+function createSeenArray() {
+    var seenArray = JSON.parse(localStorage.getItem("seenArray")) || [];
+    for(var i = 0; i < seenArray.length; i++) {
+        var seenItem = $("<li>");
+        seenItem.text(seenArray[i].Title);
+        seenItem.append('<button class="btn btn-danger btn-small delete-item-btn">Remove</button>');
+        seenList.append(seenItem);
+        //   shoppingListEl.append(shoppingListItemEl);
+        //   // clear the form input element
+        //   $('input[name="shopping-input"]').val('');
+          
+    }
+};
 
 function createWatchArray() {
     var watchArray = JSON.parse(localStorage.getItem("watchArray")) || [];
     for(var i = 0; i < watchArray.length; i++) {
         var watchItem = $("<li>");
         watchItem.text(watchArray[i].Title);
+        watchItem.append('<button class="btn btn-danger btn-small delete-item-btn">Remove</button>');
         watchList.append(watchItem);
     }
 };
@@ -153,3 +169,18 @@ createWatchArray();
 function clearArray(array) {
     array.empty();
 }
+
+seenList.on('click', '.delete-item-btn', removeItem);
+
+function removeItem(event) {
+    var removeBtn = $(event.target);
+    removeBtn.parent('li').remove();
+    console.log(this);
+};
+
+// var shoppingFormEl = $('#shopping-form');
+// var shoppingListEl = $('#shopping-list');
+
+// shoppingListItemEl.append(
+//     '<button class="btn btn-danger btn-small delete-item-btn">Remove</button>'
+//   );

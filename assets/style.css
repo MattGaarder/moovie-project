@@ -213,18 +213,7 @@ ul {
   
   
   /* Element counter */
-  li::before {
-    content: counters(index, ".", decimal-leading-zero);
-    font-size: 1rem;
-    text-align: right;
-    min-width: 50px;
-    padding-right: 12px;
-    font-variant-numeric: tabular-nums;
-    align-self: flex-start;
-    background-image: linear-gradient(to bottom, rgb(0, 0, 0), rgb(121, 121, 121));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
+
   
   
   /* Element separation */

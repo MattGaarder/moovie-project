@@ -51,3 +51,11 @@
 13. Create a clear list function so that when movies are added to either list there are no repeat values. DONE
 
 14. CSS styles on watch and seen list
+
+15. Create a seen button on watch list elements so that they get moved to the seen list
+
+16. Create a delete button on list elements to remove them from their respective lists 
+
+17. Make list elements draggable so that they can be re-ordered 
+
+18. Get newly added divs so that they appear inside the discover div and they can be scrolled through
