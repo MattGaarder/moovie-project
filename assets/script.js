@@ -5,20 +5,14 @@ var watchList = $("#watchList");
 
 $("#find-movie").on("click", function (event) {
     //moving all element generation inside find-movie button
-    playerDiv = $("<div id='player'>");
-    buttonDiv = $("<div id='buttonDiv'>");
-    discoverDiv = $("<div class='discover'>");
-    seenButton = $("<button id='seen'>");
-    watchButton = $("<button id='watch'>");
-    detailsDiv = $("<div class='details'>");
-    $("#movies-view").append(discoverDiv);
+
     event.preventDefault();
     OMDBInfoRequest();
     // getTrailer()
 });
 
-function OMDBInfoRequest() {
-    var queryParam = $("#find-input").val();
+function OMDBInfoRequest(movieObject) {
+    var queryParam = $("#find-input").val() || movieObject.Title;
     var queryURL = "https://www.omdbapi.com/?t=" + queryParam + "&apikey=" + OMDBKey;
     $.ajax({
         url: queryURL,
@@ -30,16 +24,20 @@ function OMDBInfoRequest() {
             Year: OMDBObject.Year,
             Poster: OMDBObject.Poster,
         };
-        console.log(movieObject);
+        // console.log(movieObject);
         getTrailer(movieObject);
     })
 };
 
 
 function displayInfo(OMDBCall) {
-    var imageURL = OMDBCall.Poster;
-    var moviePoster = $("<img>").attr("src", imageURL);
-    discoverDiv.append(moviePoster);
+    playerDiv = $("<div id='player'>");
+    buttonDiv = $("<div id='buttonDiv'>");
+    discoverDiv = $("<div class='discover'>");
+    seenButton = $("<button id='seen'>");
+    watchButton = $("<button id='watch'>");
+    detailsDiv = $("<div class='details'>");
+    $("#movies-view").append(discoverDiv);
     const keys = Object.keys(OMDBCall);
     let i = 0;
     for (const key of keys) {
@@ -61,8 +59,8 @@ function displayInfo(OMDBCall) {
         Year: OMDBCall.Year,
         Poster: OMDBCall.Poster,
     };
-    console.log(movieObject);
-    console.log(OMDBCall.Title);
+    // console.log(movieObject);
+    // console.log(OMDBCall.Title);
 
 
 };
@@ -79,19 +77,22 @@ function appendElements(OMDBCall) {
     watchButton.on('click', function () {
         moveToList(OMDBCall, 'watch');
     });
+    var imageURL = OMDBCall.Poster;
+    var moviePoster = $("<img>").attr("src", imageURL);
+    discoverDiv.append(moviePoster);
 }
 
 function getTrailer(movieObject) {
-    console.log(movieObject.Title);
+    // console.log(movieObject.Title);
     var queryParam = movieObject.Title;
     var queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=" + queryParam + " trailer&key=" + youtubeApiKey;
     $.ajax({
         url: queryURL,
         method: "GET"
     }).then(function (youtubeObject) {
-        console.log(youtubeObject);
+        // console.log(youtubeObject);
         movieObject["videoId"] = youtubeObject.items[0].id.videoId;
-        console.log(movieObject);
+        // console.log(movieObject);
         appendElements(movieObject);
         onYouTubeIframeAPIReady(movieObject)
     })
@@ -122,13 +123,15 @@ function infoFromListEl() {
         Title: $(this).data("title"),
         Year: $(this).data("year"),
         Poster: $(this).data("Poster"),
-        VideoID: $(this).data("videoid")
+        videoId: $(this).data("videoid")
     }
+
     onYouTubeIframeAPIReady(movieObject);
+    OMDBInfoRequest(movieObject);
     displayInfo(movieObject);
 }
 
-
+seenList.on('click', '.seen-item', infoFromListEl);
 
 // The operands of the conditional (ternary) operator may be of any type. The first operand is
 // evaluated and interpreted as a boolean. If the value of the first operand is truthy, then
@@ -161,6 +164,7 @@ function createSeenArray() {
     for(var i = 0; i < seenArray.length; i++) {
         var seenItem = $("<li>");
         seenItem.text(seenArray[i].Title);
+        seenItem.addClass('seen-item');
         seenItem.attr("data-title", seenArray[i].Title);
         seenItem.attr("data-year", seenArray[i].Year);
         seenItem.attr("data-poster", seenArray[i].Poster);
@@ -225,9 +229,9 @@ watchList.on('click', '.seen-item-btn', moveToSeen);
 function removeItem(event) {
     var removeBtn = $(event.target);
     var whichList = removeBtn.parent().parent().data("list");
-    console.log(whichList); // this logs to either seen or watch depending on the list
+    // console.log(whichList); // this logs to either seen or watch depending on the list
     var listArray = JSON.parse(localStorage.getItem(whichList + "Array"))
-    console.log(listArray);
+    // console.log(listArray);
     for(var i = 0; i < listArray.length; i++) {
         if(listArray[i].Title === $(event.target).parent().data("title")){
             listArray.splice(i, 1);
@@ -243,12 +247,12 @@ function removeItem(event) {
         clearArray(watchList);
         createWatchArray();
     }
-    // console.log(whichList + "List");
-    
-    // createWatchArray();
-    // removeBtn.parent('li').remove();
-    // console.log(this);
 };
+// console.log(whichList + "List");
+
+// createWatchArray();
+// removeBtn.parent('li').remove();
+// console.log(this);
 // I want to create a move to seen button. This will have a moveToSeen function called on click. 
 // The moveToSeen function needs to get the watch array from LocalStorage and find the film with the same key as the data-title of the div that is being clicked on 
 // To do this the div will already have to have a recognisable data attribute applied to it. 
