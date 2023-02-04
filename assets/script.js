@@ -162,10 +162,18 @@ createWatchArray();
 var watchArray;
 
 function moveToSeen(event) {
+    var seenArray = JSON.parse(localStorage.getItem("seenArray"));
+
+    var moveToSeenObject = {
+        Title: $(event.target).parent().data("title")
+    }
+    seenArray.push(moveToSeenObject);
+    localStorage.setItem("seenArray", JSON.stringify(seenArray));
+    clearArray(seenList);
+    createSeenArray();
     var watchArray = JSON.parse(localStorage.getItem("watchArray"));
     for(var i = 0; i < watchArray.length; i++) {
         if(watchArray[i].Title === $(event.target).parent().data("title")){
-            console.log($(event.target).parent().data("title"));
             watchArray.splice(i, 1);
             break;
         }
