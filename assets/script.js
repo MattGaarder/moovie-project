@@ -133,19 +133,6 @@ function moveToList(movieObject, list) {
 
 
 
-// function moveToWatch(movieObject) {
-//     console.log(movieObject);
-//     var watchArray = JSON.parse(localStorage.getItem("watchArray")) || [];
-//     for(var i = 0; i < watchArray.length; i++) {
-//         if(movieObject.Title === watchArray[i].Title) {
-//             return;
-//         }
-//     }   
-//     clearArray(watchList)
-//     watchArray.push(movieObject);
-//     localStorage.setItem("watchArray", JSON.stringify(watchArray));
-//     createWatchArray();
-// }
 
 function createSeenArray() {
     var seenArray = JSON.parse(localStorage.getItem("seenArray")) || [];
@@ -166,21 +153,30 @@ function createWatchArray() {
         watchItem.text(watchArray[i].Title);
         watchItem.attr("data-title", watchArray[i].Title);
         watchItem.append('<button class="btn btn-danger btn-small delete-item-btn">Remove</button>');
+        watchItem.append('<button class="btn btn-danger btn-small seen-item-btn">Seen</button>');
         watchList.append(watchItem);
     }
 };
 createWatchArray();
 
+var watchArray;
 
-// I want to create a move to seen button. This will have a moveToSeen function. 
-// The moveToSeen function needs to get the watch array from LocalStorage and find the film with the same key as the div that is being clicked on 
-// To do this the div will already have to have a recognisable data attribute applied to it. 
-// I will have to iterate through the array till the data attribute and the key in the array match
-// Once this is done I will have to store this index in a variable 
-// I will then split? splice? slice? This from the array. 
-// And then get the seen array from local storage and push the film that wants to be moved to the array and then I can call the createSeenArray.
-// First step to do this is to figure out where to apply the data attribute. 
+function moveToSeen(event) {
+    var watchArray = JSON.parse(localStorage.getItem("watchArray"));
+    for(var i = 0; i < watchArray.length; i++) {
+        if(watchArray[i].Title === $(event.target).parent().data("title")){
+            console.log($(event.target).parent().data("title"));
+            watchArray.splice(i, 1);
+            break;
+        }
+    } 
+    localStorage.setItem("watchArray", JSON.stringify(watchArray));
+    clearArray(watchList);
+    createWatchArray();
+}
 
+// so far this removes the item from the watchArray. I could a. remove the item with the removeItem function
+// or b. save this new array to localStorage and then call the create watchArray again
 
 function clearArray(array) {
     array.empty();
@@ -188,13 +184,35 @@ function clearArray(array) {
 
 seenList.on('click', '.delete-item-btn', removeItem);
 watchList.on('click', '.delete-item-btn', removeItem);
+watchList.on('click', '.seen-item-btn', moveToSeen);
 
 function removeItem(event) {
     var removeBtn = $(event.target);
     removeBtn.parent('li').remove();
     console.log(this);
 };
+// I want to create a move to seen button. This will have a moveToSeen function called on click. 
+// The moveToSeen function needs to get the watch array from LocalStorage and find the film with the same key as the data-title of the div that is being clicked on 
+// To do this the div will already have to have a recognisable data attribute applied to it. 
+// I will have to iterate through the array till the data attribute and the key in the array match
+// Once this is done I will have to store this index in a variable 
+// I will then split? splice? slice? This from the array. 
+// And then get the seen array from local storage and push the film that wants to be moved to the array and then I can call the createSeenArray.
+// First step to do this is to figure out where to apply the data attribute. 
 
+// function moveToWatch(movieObject) {
+//     console.log(movieObject);
+//     var watchArray = JSON.parse(localStorage.getItem("watchArray")) || [];
+//     for(var i = 0; i < watchArray.length; i++) {
+//         if(movieObject.Title === watchArray[i].Title) {
+//             return;
+//         }
+//     }   
+//     clearArray(watchList)
+//     watchArray.push(movieObject);
+//     localStorage.setItem("watchArray", JSON.stringify(watchArray));
+//     createWatchArray();
+// }
 // var shoppingFormEl = $('#shopping-form');
 // var shoppingListEl = $('#shopping-list');
 
