@@ -57,16 +57,16 @@ function displayInfo(OMDBCall) {
 };
 
 function appendElements(OMDBCall) {
-    discoverDiv.append(playerDiv);
     discoverDiv.append(detailsDiv);
+    discoverDiv.append(playerDiv);
     detailsDiv.append(buttonDiv);
     buttonDiv.append(watchButton);
     buttonDiv.append(seenButton);
     seenButton.on('click', function () {
-        moveToSeen(OMDBCall);
+        moveToList(OMDBCall, 'seen');
     });
     watchButton.on('click', function () {
-        moveToWatch(OMDBCall);
+        moveToList(OMDBCall, 'watch');
     });
 }
 
@@ -110,36 +110,38 @@ function onYouTubeIframeAPIReady(youtubeObject) {
 // operand is falsy, then the third operand is evaluated and its value is returned. Only
 // one of the second and third operands is evaluated; never both.
 
-function moveToSeen(movieObject) {
-    
-    console.log(movieObject);
-    var seenArray = JSON.parse(localStorage.getItem("seenArray")) || [];
-    for(var i = 0; i < seenArray.length; i++) {
-        if(movieObject.Title === seenArray[i].Title) {
+function moveToList(movieObject, list) {
+    var listArray = JSON.parse(localStorage.getItem(list + "Array")) || [];
+    for(var i = 0; i < listArray.length; i++) {
+        if(movieObject.Title === listArray[i].Title) {
             return;
         }
     }
-        clearArray(seenList);
-        seenArray.push(movieObject);
-        localStorage.setItem("seenArray", JSON.stringify(seenArray));
-        createSeenArray();
-}
-
-createSeenArray();
-
-function moveToWatch(movieObject) {
-    console.log(movieObject);
-    var watchArray = JSON.parse(localStorage.getItem("watchArray")) || [];
-    for(var i = 0; i < watchArray.length; i++) {
-        if(movieObject.Title === watchArray[i].Title) {
-            return;
+        clearArray(list === 'seen' ? seenList : watchList);
+        listArray.push(movieObject);
+        localStorage.setItem(list + "Array", JSON.stringify(listArray));
+        if (list === 'seen') {
+            createSeenArray();
+        } else {
+            createWatchArray();
         }
-    }   
-    clearArray(watchList)
-    watchArray.push(movieObject);
-    localStorage.setItem("watchArray", JSON.stringify(watchArray));
-    createWatchArray();
 }
+
+
+
+// function moveToWatch(movieObject) {
+//     console.log(movieObject);
+//     var watchArray = JSON.parse(localStorage.getItem("watchArray")) || [];
+//     for(var i = 0; i < watchArray.length; i++) {
+//         if(movieObject.Title === watchArray[i].Title) {
+//             return;
+//         }
+//     }   
+//     clearArray(watchList)
+//     watchArray.push(movieObject);
+//     localStorage.setItem("watchArray", JSON.stringify(watchArray));
+//     createWatchArray();
+// }
 
 function createSeenArray() {
     var seenArray = JSON.parse(localStorage.getItem("seenArray")) || [];
@@ -154,6 +156,7 @@ function createSeenArray() {
           
     }
 };
+createSeenArray();
 
 function createWatchArray() {
     var watchArray = JSON.parse(localStorage.getItem("watchArray")) || [];
@@ -171,6 +174,7 @@ function clearArray(array) {
 }
 
 seenList.on('click', '.delete-item-btn', removeItem);
+watchList.on('click', '.delete-item-btn', removeItem);
 
 function removeItem(event) {
     var removeBtn = $(event.target);
