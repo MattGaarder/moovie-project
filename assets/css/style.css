@@ -40,9 +40,10 @@ h1 {
   /* align-items: center !important;  */
   justify-content: center !important;
   display: flex;
-  /* height: 50vh; */
-  width: 90vw;
+  height: 50vh;
+  width: 98vw;
   margin: 0%;
+  flex-direction: row;
   /* overflow: hidden; */
 }
 
@@ -52,6 +53,7 @@ body {
     /* flex-direction: row !important; */
     align-items: center !important; 
     justify-content: center !important;
+    background-color: rgb(46, 46, 46);
     /* height: 100vh; */
     /* height: 100vh; */
     /* overflow: hidden; */
@@ -62,20 +64,22 @@ body {
   /* display: flex;
   flex-direction: row;
   padding: 1em; */
-  border: 2px solid #111;
+  border: 2px solid rgb(22, 22, 22);
   border-radius: 18px;
   /* box-sizing: border-box;
   color: #111; */
-  background-color: gray;
+  background-color: rgb(30, 30, 30);
   background-size: auto 100%; 
   background-repeat: no-repeat;
   height: 70vh;
   cursor: pointer;
   color: white;
-  flex: 0.5;
+  /* flex: 0.5; */
+  display: flex;
   margin: 2px;
   position: relative;
   transition: flex 0.7s ease-in;
+  flex-direction: row;
   /* I am adding a transition on the flex property, so when this property changes it is not instantaneous */
   /* I am making position relative so that I can make elements inside have position absolute */
   /* flex will be the value that I will be changing for when the discover divs are active or inactive 
@@ -90,15 +94,15 @@ body {
 }
 
 .details p.Title {
-  /* display: inline; */
+  display: inline;
   font-weight: bold;
   font-size: 35px;
   position: absolute;
   top: 3%;
   right: 3%;
-  opacity: 0;
-  /* width: 50%; */
-  /* text-align: left; */
+  opacity: 1;
+  width: 50%;
+  text-align: left;
 }
 
 .details.active p.Title {
@@ -148,17 +152,20 @@ body {
 }
 
 .details {
-    /* display: flex;
+    display: flex;
     flex-direction: column;
     margin: 0%;
-    padding: 0%; */
+    padding: 0%;
+    /* width: 30%; */
 }
 
-.details p {
-    /* display: inline;
+/* .details p {
+    display: inline-block;
     color: rgb(0, 0, 0);
-    width: 80%; */
-}
+    /* width: 30%; */
+    /* margin: 0%;
+    border: 0;
+} */
 
 .details p.Rated {
     /* display: inline-block; */
@@ -178,9 +185,14 @@ button {
 }
 
 #player {
-    /* position: relative; */
-    /* width: 900px;
-    height: 300px; */
+    position: relative;
+    padding-top: 0.5%;
+    padding-right: 0.8%; 
+    width: 50vw;
+    height: 68vh;
+    float: right;
+    display: inline;
+    border-radius: 18px;
 }
 
 img {

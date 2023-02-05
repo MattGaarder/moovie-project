@@ -58,16 +58,20 @@
 
 17. Make list elements draggable so that they can be re-ordered.
 
-18. Get newly added divs so that they appear inside the discover div and they can be scrolled through. IF I CAN DO THIS TODAY I WILL BE A HAPPY BUNNY.
+18. Get newly added divs so that they appear inside the discover div and they can be scrolled through. IF I CAN DO THIS TODAY I WILL BE A HAPPY BUNNY. DONE
 I currenty have a container div with the ID movies-view.
 Each film is generated in a div with the class 'discover' (appended to movies-view)
 All other elements are appended to this dicover div.
 
-When generating a discover with the search button, I also need to append a class 'active' to discover
+When generating a discover with the search button, I also need to append a class 'active' to discover. DONE
 
 19. Make it so that when removing items from lists also removes them from local storage. DONE
 
 20. Make it so that clicking on the elements from the watch list or seen list gets their info back up on discover div. DONE
 
 21. Make an info button so rather than clicking on the element to show information you need to click on a button. 
+
+22. Make is so that clicking on a non-active discover div, generates the player in the div
+
+23. Make the player div appear back in the discover div when click search button
 
