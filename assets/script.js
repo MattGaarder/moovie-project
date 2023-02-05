@@ -6,15 +6,17 @@ var moviesView = $("#movies-view");
 
 $("#find-movie").on("click", function (event) {
     //moving all element generation inside find-movie button
-
+    movieObject = {
+        Title: $("#find-input").val()
+    };
     event.preventDefault();
-    OMDBInfoRequest();
+    OMDBInfoRequest(movieObject);
     // getTrailer()
 });
 
 function OMDBInfoRequest(movieObject) {
-    var queryParam = $("#find-input").val() || movieObject.Title;
-    var queryURL = "https://www.omdbapi.com/?t=" + queryParam + "&apikey=" + OMDBKey;
+    var queryParam = movieObject.Title;
+    var queryURL = "https://www.omdbapi.com/?t=" + queryParam + "&plot=full&apikey=" + OMDBKey;
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -67,10 +69,11 @@ function displayInfo(OMDBCall) {
 function appendElements(OMDBCall) {
     var imageURL = OMDBCall.Poster;
     discoverDiv.css("background-image", "url(" + imageURL + ")");
-    if (moviesView.children().length === 0) {
+    $(".discover").children("#player").remove();
+    $(".discover").children("iframe").remove();
+    $(".discover").removeClass("active");
         discoverDiv.addClass("active");
         detailsDiv.addClass("active");
-    }
     // discoverDiv.append(moviePoster);
     discoverDiv.append(detailsDiv);
     discoverDiv.append(playerDiv);
@@ -137,6 +140,7 @@ function infoFromListEl() {
 function applyActive() {
     var clickedDiscover = $(this);
     if (!clickedDiscover.hasClass("active")) {
+        $(".discover").children("#player").remove();
         $(".discover").children("iframe").remove();
         $(".discover").removeClass("active");
         clickedDiscover.addClass("active");

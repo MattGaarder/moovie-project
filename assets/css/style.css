@@ -3,110 +3,158 @@
 * {
     box-sizing: border-box
 }
-/* .container { */
-    /* display: flex; */
-    /* justify-content: center !important; */
-    /* align-items: center; */
-    /* height: 100vh; */
-/* } */
-
-h1 {
-    /* padding: 0%;
-    margin: 0%; */
-}
-
-/* .hero {
-  height: 320px;
-  width: 100%;
-  margin-bottom: 25px;
-  background-image: url("./images/Header_Image.png");
-  background-size: cover;
-  background-position: center;
-} */
-
-#theLists {
-    align-items: center;
-    justify-content: center;
-}
-
-.header {
-    /* display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; */
-}
-
-#movies-view {
-  /* align-items: center !important;  */
-  justify-content: center !important;
-  display: flex;
-  height: 50vh;
-  width: 98vw;
-  margin: 0%;
-  flex-direction: row;
-  /* overflow: hidden; */
-}
 
 body {
     font-family: 'Roboto', sans-serif;
-    /* display: flex; */
-    /* flex-direction: row !important; */
+    display: flex;
+    flex-direction: column !important;
     align-items: center !important; 
     justify-content: center !important;
     background-color: rgb(46, 46, 46);
     /* height: 100vh; */
-    /* height: 100vh; */
     /* overflow: hidden; */
+  }
+  
+  #theLists {
+    align-items: center;
+    justify-content: center;
+  }
+  
+  #movies-view {
+    display: flex;
+    height: 50vh;
+    width: 98vw;
+    margin: 0%;
+    flex-direction: row;
+  }
+  
+  
+  .discover {
+    display: flex;
+    flex-direction: row;
+    padding: 1em;
+    border: 2px solid rgb(22, 22, 22);
+    border-radius: 18px;
+    background-color: rgb(30, 30, 30);
+    background-size: auto 100%; 
+    background-repeat: no-repeat;
+    height: 70vh;
+    cursor: pointer;
+    color: rgb(232, 232, 232);
+    flex: 0.5;
+    margin: 2px;
+    position: relative;
+    transition: flex 0.7s ease-in;
+    /* I am adding a transition on the flex property, so when this property changes it is not instantaneous */
+    /* I am making position relative so that I can make elements inside have position absolute */
+    /* flex will be the value that I will be changing for when the discover divs are active or inactive 
+    (how much space they will occupy relative to each other */
+    /* background-size auto is good for like centering a background image so that 
+    it does not warp the aspect ratio on different sizes. background-position also good for this.
+    background-repeat: no-repeat also highly recommended*/
+  }
+  
 
-}
 
-.discover {
-  /* display: flex;
-  flex-direction: row;
-  padding: 1em; */
-  border: 2px solid rgb(22, 22, 22);
-  border-radius: 18px;
-  /* box-sizing: border-box;
-  color: #111; */
-  background-color: rgb(30, 30, 30);
-  background-size: auto 100%; 
-  background-repeat: no-repeat;
-  height: 70vh;
-  cursor: pointer;
-  color: white;
-  /* flex: 0.5; */
+
+
+.details {
   display: flex;
-  margin: 2px;
-  position: relative;
-  transition: flex 0.7s ease-in;
-  flex-direction: row;
-  /* I am adding a transition on the flex property, so when this property changes it is not instantaneous */
-  /* I am making position relative so that I can make elements inside have position absolute */
-  /* flex will be the value that I will be changing for when the discover divs are active or inactive 
-  (how much space they will occupy relative to each other */
-  /* background-size auto is good for like centering a background image so that 
-  it does not warp the aspect ratio on different sizes. background-position also good for this.
-  background-repeat: no-repeat also highly recommended*/
+  flex-direction: column;
+  margin: 0%;
+  padding: 0%;
+  /* margin-left: 285px; */
 }
+
+.details p.Title {
+  /* display: inline; */
+  font-weight: bold;
+  font-size: 35px;
+  position: absolute;
+  /* margin-left: 285px; */
+  opacity: 1;
+  /* width: 50%; */
+}
+
+.details p.Year {
+    display: inline;
+    position: absolute;
+    /* text-align: right; */
+    color: rgb(165, 165, 165);
+    font-size: 35px;
+    /* width: 5%; */
+    /* margin-left: 160px; */
+    margin-top: 0.01%;
+}
+
+.details.active p.Title {
+  opacity: 1;
+}
+
+.details p {
+  padding-left: 0%;
+  margin: 0%;
+  padding: 0.2%;
+}
+
+
+.details p.Rated {
+    display: inline;
+    padding-left: 0%;
+    /* width: 5%; */
+    /* margin-left: 250px; */
+    margin-top: 10px;
+}
+
+.details p.Plot {
+    display: block;
+    margin: 0;
+}
+
+.details p.Runtime {
+  /* display: inline-block; */
+  margin-top: 10px;
+}
+
+
+#player {
+  position: relative;
+  padding-top: -5%;
+  /* padding-right: 0.8%;  */
+  width: 50vw;
+  height: 65vh;
+  float: right;
+  display: inline;
+  border-radius: 18px;
+}
+
 
 .discover.active {
   flex: 5;
 }
 
-.details p.Title {
-  display: inline;
-  font-weight: bold;
-  font-size: 35px;
-  position: absolute;
-  top: 3%;
-  right: 3%;
-  opacity: 1;
-  width: 50%;
-  text-align: left;
+
+
+
+
+#theLists {
+  display: flex;
 }
 
-.details.active p.Title {
-  opacity: 1;
+#seenListDiv {
+  display: flex;
+  flex-direction: column;
+  width: 48%;
+  align-items: center;
+  justify-content: center;
+}
+
+#watchListDiv {
+  display: flex;
+  flex-direction: column;
+  width: 48%;
+  align-items: center;
+  justify-content: center;
 }
 
 @media(max-width: 480px) {
@@ -120,110 +168,18 @@ body {
   /* colon is a pseudo-selector. It will get the last 2 of the .panel type (get 4 and 5, and don't display them if width is below 480pxs*/
 }
 
-
-
-
-
-
-
-
-
-
-
-
-#theLists {
-  display: flex;
-}
-
-#seenListDiv {
-    display: flex;
-    flex-direction: column;
-    width: 48%;
-    align-items: center;
-    justify-content: center;
-}
-
-#watchListDiv {
-    display: flex;
-    flex-direction: column;
-    width: 48%;
-    align-items: center;
-    justify-content: center;
-}
-
-.details {
-    display: flex;
-    flex-direction: column;
-    margin: 0%;
-    padding: 0%;
-    /* width: 30%; */
-}
-
-/* .details p {
-    display: inline-block;
-    color: rgb(0, 0, 0);
-    /* width: 30%; */
-    /* margin: 0%;
-    border: 0;
-} */
-
-.details p.Rated {
-    /* display: inline-block; */
-
-}
-
-.details p.Plot {
-    /* display: block;
-    margin: 2%; */
-}
-
-
-
 button {
     /* height: 40px;
     width: 100px; */
 }
 
-#player {
-    position: relative;
-    padding-top: 0.5%;
-    padding-right: 0.8%; 
-    width: 50vw;
-    height: 68vh;
-    float: right;
-    display: inline;
-    border-radius: 18px;
-}
 
-img {
-    /* display: flex;
-    flex-direction: row;
-    width: 200px;
-    height: 300px;
-    margin-right: 15px;
-    border-radius: 12px; */
-}
 
-p {
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* align-items: center; 
-    justify-content: center;
-    padding: 0.15%;
-    margin: 0%; */
-}
-.details p.Year {
-    /* display: inline;
-    text-align: right;
-    color: rgb(165, 165, 165);
-    font-size: 25px;
-    width: 50%;
-    margin-left: 10px; */
-}
+
 
 .button-56 {
     align-items: center;
-    background-color: #fee6e3;
+    background-color: #a0a0a0;
   border: 2px solid #111;
   border-radius: 8px;
   box-sizing: border-box;
@@ -265,7 +221,7 @@ p {
 }
 
 .button-56:active {
-  background-color: #ffdeda;
+  background-color: #5c5c5c;
   outline: 0;
 }
 
@@ -306,25 +262,6 @@ ul {
     border-top: 1px solid rgba(38, 38, 38, 0.2);
   }
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   /* @use postcss-preset-env {
     stage: 0;
     autoprefixer: {
@@ -332,3 +269,22 @@ ul {
     }
     browsers: last 2 versions
   } */
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
