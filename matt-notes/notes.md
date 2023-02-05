@@ -34,7 +34,7 @@
 5. Video ID from this function is stored in a variable that is inserted into iFrame video embed DONE
 (lets start off with this a MVP). I want to use the API to retrieve the trailers and display them in a visually appealing way, such as in a grid or a carousel.
 
-6. Make all this information appear presentable on the page. NOT YET. Delegate.
+6. Make all this information appear presentable on the page. NOT YET. Delegate. Nevermind. Do it yourself. 
 
 7. Applies object keys as classes to generated p elements to apply styles in CSS. DONE 
 
@@ -50,16 +50,24 @@
 
 13. Create a clear list function so that when movies are added to either list there are no repeat values. DONE
 
-14. CSS styles on watch and seen list
+14. CSS styles on watch and seen list. 
 
 15. Create a seen button on watch list elements so that they get moved to the seen list. DONE
 
 16. Create a delete button on list elements to remove them from their respective lists. DONE
 
-17. Make list elements draggable so that they can be re-ordered 
+17. Make list elements draggable so that they can be re-ordered.
 
-18. Get newly added divs so that they appear inside the discover div and they can be scrolled through
+18. Get newly added divs so that they appear inside the discover div and they can be scrolled through. IF I CAN DO THIS TODAY I WILL BE A HAPPY BUNNY.
+I currenty have a container div with the ID movies-view.
+Each film is generated in a div with the class 'discover' (appended to movies-view)
+All other elements are appended to this dicover div.
+
+When generating a discover with the search button, I also need to append a class 'active' to discover
 
 19. Make it so that when removing items from lists also removes them from local storage. DONE
 
-20. Make it so that clicking on the elements from the watch list or seen list gets their info back up on discover div
+20. Make it so that clicking on the elements from the watch list or seen list gets their info back up on discover div. DONE
+
+21. Make an info button so rather than clicking on the element to show information you need to click on a button. 
+

@@ -65,8 +65,8 @@ function displayInfo(OMDBCall) {
 
 function appendElements(OMDBCall) {
     var imageURL = OMDBCall.Poster;
-    var moviePoster = $("<img>").attr("src", imageURL);
-    discoverDiv.append(moviePoster);
+    discoverDiv.css("background-image", "url(" + imageURL + ")");
+    // discoverDiv.append(moviePoster);
     discoverDiv.append(detailsDiv);
     discoverDiv.append(playerDiv);
     detailsDiv.append(buttonDiv);
