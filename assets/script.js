@@ -137,10 +137,15 @@ function infoFromListEl() {
 function applyActive() {
     var clickedDiscover = $(this);
     if (!clickedDiscover.hasClass("active")) {
+        $(".discover").children("iframe").remove();
         $(".discover").removeClass("active");
         clickedDiscover.addClass("active");
     }
-}
+};
+
+// I need to make it so that when active is applied the youtube player is removed from the active div
+// and then it is generated in the new active div. How to do this?
+// // removeBtn.parent('li').remove();
 
 moviesView.on('click', '.discover', applyActive);
 seenList.on('click', '.seen-item', infoFromListEl);
