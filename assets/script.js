@@ -2,6 +2,7 @@
 var videoIdo;
 var seenList = $("#seenList");
 var watchList = $("#watchList");
+var moviesView = $("#movies-view");
 
 $("#find-movie").on("click", function (event) {
     //moving all element generation inside find-movie button
@@ -37,7 +38,7 @@ function displayInfo(OMDBCall) {
     seenButton = $("<button id='seen'>");
     watchButton = $("<button id='watch'>");
     detailsDiv = $("<div class='details'>");
-    $("#movies-view").append(discoverDiv);
+    moviesView.append(discoverDiv);
     const keys = Object.keys(OMDBCall);
     let i = 0;
     for (const key of keys) {
@@ -66,8 +67,10 @@ function displayInfo(OMDBCall) {
 function appendElements(OMDBCall) {
     var imageURL = OMDBCall.Poster;
     discoverDiv.css("background-image", "url(" + imageURL + ")");
-    discoverDiv.addClass("active");
-    detailsDiv.addClass("active");
+    if (moviesView.children().length === 0) {
+        discoverDiv.addClass("active");
+        detailsDiv.addClass("active");
+    }
     // discoverDiv.append(moviePoster);
     discoverDiv.append(detailsDiv);
     discoverDiv.append(playerDiv);
@@ -131,6 +134,15 @@ function infoFromListEl() {
 
 }
 
+function applyActive() {
+    var clickedDiscover = $(this);
+    if (!clickedDiscover.hasClass("active")) {
+        $(".discover").removeClass("active");
+        clickedDiscover.addClass("active");
+    }
+}
+
+moviesView.on('click', '.discover', applyActive);
 seenList.on('click', '.seen-item', infoFromListEl);
 watchList.on('click', '.watch-item', infoFromListEl);
 // The operands of the conditional (ternary) operator may be of any type. The first operand is
