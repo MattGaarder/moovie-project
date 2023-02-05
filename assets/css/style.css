@@ -32,7 +32,7 @@ body {
   .discover {
     display: flex;
     flex-direction: row;
-    padding: 1em;
+    /* padding: 1em; */
     border: 2px solid rgb(22, 22, 22);
     border-radius: 18px;
     background-color: rgb(30, 30, 30);
@@ -41,8 +41,8 @@ body {
     height: 70vh;
     cursor: pointer;
     color: rgb(232, 232, 232);
-    flex: 0.5;
-    margin: 2px;
+    flex: 0.01;
+    /* margin: 2px; */
     position: relative;
     transition: flex 0.7s ease-in;
     /* I am adding a transition on the flex property, so when this property changes it is not instantaneous */
@@ -67,7 +67,7 @@ body {
 }
 
 .details p.Title {
-  /* display: inline; */
+  display: inline;
   font-weight: bold;
   font-size: 35px;
   position: absolute;
@@ -79,7 +79,7 @@ body {
 .details p.Year {
     display: inline;
     position: absolute;
-    /* text-align: right; */
+    text-align: right;
     color: rgb(165, 165, 165);
     font-size: 35px;
     /* width: 5%; */
@@ -94,7 +94,7 @@ body {
 .details p {
   padding-left: 0%;
   margin: 0%;
-  padding: 0.2%;
+  padding: 0.1%;
 }
 
 
@@ -130,7 +130,7 @@ body {
 
 
 .discover.active {
-  flex: 5;
+  flex: 9;
 }
 
 
