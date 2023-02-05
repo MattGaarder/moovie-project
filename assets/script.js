@@ -66,6 +66,8 @@ function displayInfo(OMDBCall) {
 function appendElements(OMDBCall) {
     var imageURL = OMDBCall.Poster;
     discoverDiv.css("background-image", "url(" + imageURL + ")");
+    discoverDiv.addClass("active");
+    detailsDiv.addClass("active");
     // discoverDiv.append(moviePoster);
     discoverDiv.append(detailsDiv);
     discoverDiv.append(playerDiv);

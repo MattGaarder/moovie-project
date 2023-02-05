@@ -66,11 +66,12 @@ body {
   border-radius: 18px;
   /* box-sizing: border-box;
   color: #111; */
-  background-color: #fff8f7;
+  background-color: gray;
   background-size: auto 100%; 
+  background-repeat: no-repeat;
   height: 70vh;
   cursor: pointer;
-  color: aqua;
+  color: white;
   flex: 0.5;
   margin: 2px;
   position: relative;
@@ -84,19 +85,36 @@ body {
   background-repeat: no-repeat also highly recommended*/
 }
 
+.discover.active {
+  flex: 5;
+}
+
 .details p.Title {
   /* display: inline; */
   font-weight: bold;
   font-size: 35px;
   position: absolute;
+  top: 3%;
+  right: 3%;
+  opacity: 0;
   /* width: 50%; */
   /* text-align: left; */
 }
 
+.details.active p.Title {
+  opacity: 1;
+}
 
-
-
-
+@media(max-width: 480px) {
+  #movies-view {
+    width: 100vw;
+  }
+  .discover:nth-of-type(4),
+  .discover:nth-of-type(5) {
+    display: none;
+  }
+  /* colon is a pseudo-selector. It will get the last 2 of the .panel type (get 4 and 5, and don't display them if width is below 480pxs*/
+}
 
 
 
