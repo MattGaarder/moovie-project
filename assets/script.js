@@ -61,11 +61,12 @@ function displayInfo(OMDBCall) {
     };
     // console.log(movieObject);
     // console.log(OMDBCall.Title);
-
-
 };
 
 function appendElements(OMDBCall) {
+    var imageURL = OMDBCall.Poster;
+    var moviePoster = $("<img>").attr("src", imageURL);
+    discoverDiv.append(moviePoster);
     discoverDiv.append(detailsDiv);
     discoverDiv.append(playerDiv);
     detailsDiv.append(buttonDiv);
@@ -77,9 +78,6 @@ function appendElements(OMDBCall) {
     watchButton.on('click', function () {
         moveToList(OMDBCall, 'watch');
     });
-    var imageURL = OMDBCall.Poster;
-    var moviePoster = $("<img>").attr("src", imageURL);
-    discoverDiv.append(moviePoster);
 }
 
 function getTrailer(movieObject) {
@@ -128,11 +126,11 @@ function infoFromListEl() {
 
     onYouTubeIframeAPIReady(movieObject);
     OMDBInfoRequest(movieObject);
-    displayInfo(movieObject);
+
 }
 
 seenList.on('click', '.seen-item', infoFromListEl);
-
+watchList.on('click', '.watch-item', infoFromListEl);
 // The operands of the conditional (ternary) operator may be of any type. The first operand is
 // evaluated and interpreted as a boolean. If the value of the first operand is truthy, then
 // the second operand is evaluated, and its value is returned. Otherwise, if the first
@@ -180,6 +178,7 @@ function createWatchArray() {
     for(var i = 0; i < watchArray.length; i++) {
         var watchItem = $("<li>");
         watchItem.text(watchArray[i].Title);
+        watchItem.addClass("watch-item");
         watchItem.attr("data-title", watchArray[i].Title);
         watchItem.attr("data-year", watchArray[i].Year);
         watchItem.attr("data-poster", watchArray[i].Poster);
