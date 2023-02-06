@@ -76,7 +76,7 @@ body {
   /* position: absolute; */
   /* margin-left: 285px; */
   opacity: 1;
-  /* width: 50%; */
+  width: 50%;
 }
 
 .details.active p.Year {
@@ -85,7 +85,7 @@ body {
     text-align: right;
     color: rgb(165, 165, 165);
     font-size: 35px;
-    /* width: 5%; */
+    width: 5%;
     /* margin-left: 160px; */
     margin-top: 0.01%;
     opacity: 1;
@@ -102,13 +102,45 @@ body {
   padding: 0.1%;
 }
 
+.details.active button {
+  cursor: pointer;
+  text-align: center;
+  display: inline-block;
+  padding: 0.5rem 1.2rem;
+  margin: 0;
+  text-decoration: none;
+  font-size: 1rem;
+  border-radius: 0.3rem;
+  border: 1px solid transparent;
+  outline: none;
+  color: #1a1a1a;
+  background-color: #aeaeae;
+  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  background-color: #e64c66;
+  color: #ffffff;
+  -webkit-appearance: button;
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+  height: 3rem;
+  width: 9rem;
+}
 
 .details p.Rated {
     display: inline;
     padding-left: 0%;
-    /* width: 5%; */
+    width: 5%;
     /* margin-left: 250px; */
     margin-top: 10px;
+}
+
+#buttonDiv {
+  justify-content: space-evenly;
+  display: flex;
+  width: 30vw;
+  padding-top: 5rem;
+  padding-left: 10rem;
 }
 
 .details p.Plot {
@@ -124,10 +156,10 @@ body {
 
 #player {
   position: relative;
-  padding-top: -5%;
+  /* padding-top: -5%; */
   /* padding-right: 0.8%;  */
   width: 50vw;
-  height: 65vh;
+  height: 69vh;
   float: right;
   display: inline;
   border-radius: 18px;
