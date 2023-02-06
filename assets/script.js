@@ -169,10 +169,11 @@ function applyActive() {
         $(".details").removeClass("active");
         clickedDiscover.addClass("active");
         clickedDiscover.children().addClass("active");
+        // I thought the non-smooth scrolling was because of the player div suddenly manifesting
         setTimeout(function() {
             clickedDiscover.append($("<div id='player'>"));
             onYouTubeIframeAPIReady(thingToSend);
-        }, 1000)
+        }, 100)
         
         console.log(clickedDiscover);
     }

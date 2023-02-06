@@ -4,6 +4,20 @@
     box-sizing: border-box
 }
 
+.header {
+  display: flex;
+  align-items: center;
+  width: 100vw;
+  background-color: #1c1c1c;
+  z-index: -1;
+}
+
+h1 {
+  color: rgb(232, 232, 232);
+  margin-top: 10%;
+  font-size: 36px;
+}
+
 body {
     font-family: 'Roboto', sans-serif;
     display: flex;
@@ -300,8 +314,9 @@ button {
 
 
 .button-56 {
+    margin-left: 14%;
     align-items: center;
-    background-color: #a0a0a0;
+    background-color: #c9c9c9;
   margin-top: 4%;
   border: 2px solid #111;
   border-radius: 8px;
