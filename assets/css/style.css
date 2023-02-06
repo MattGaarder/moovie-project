@@ -8,8 +8,8 @@
   display: flex;
   align-items: center;
   width: 100vw;
-  background-color: #1c1c1c;
-  z-index: -1;
+  background-color: rgb(30, 30, 30);
+  border: 2px solid rgb(22, 22, 22);
 }
 
 h1 {
@@ -30,10 +30,17 @@ body {
   }
   
   #theLists {
-    align-items: center;
-    justify-content: center;
+    /* align-items: center; */
+    /* justify-content: center; */
     display: flex;
     height: 50vh;
+  }
+
+  .poster {
+    width: 22vw;
+    background-size: auto 100%; 
+    background-repeat: no-repeat;
+    border-radius: 18px;
   }
   
   #movies-view {
@@ -122,7 +129,7 @@ body {
   padding: 0.1%;
 }
 
-.details.active button {
+/* .details.active button {
   cursor: pointer;
   text-align: center;
   display: inline-block;
@@ -145,7 +152,7 @@ body {
   margin: 0;
   height: 3rem;
   width: 9rem;
-}
+} */
 
 .details p.Rated {
     display: inline;
@@ -160,7 +167,7 @@ body {
   display: flex;
   width: 30vw;
   padding-top: 3rem;
-  padding-left: 10rem;
+  padding-left: 1rem;
 }
 
 .details p.Plot {
@@ -197,7 +204,7 @@ body {
 
 .details.active {
   opacity: 1 !important;
-  padding-left: 24%;
+  /* padding-left: 24%; */
   padding-top: 2%;
   display: flex;
 
@@ -314,9 +321,9 @@ button {
 
 
 .button-56 {
-    margin-left: 14%;
-    align-items: center;
-    background-color: #c9c9c9;
+  margin-left: 14%;
+  align-items: center;
+  background-color: #c9c9c9;
   margin-top: 4%;
   border: 2px solid #111;
   border-radius: 8px;
@@ -337,9 +344,10 @@ button {
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+
 }
 
-.button-56:after {
+.button-56::after {
   background-color: #111;
   border-radius: 8px;
   content: "";
