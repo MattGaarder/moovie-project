@@ -41,6 +41,7 @@ function displayInfo(OMDBCall) {
     discoverDiv = $("<div class='discover'>");
     seenButton = $("<button id='seen'>");
     watchButton = $("<button id='watch'>");
+    infoButton = $("<i class='fa-solid fa-circle-info'></i>")
     seenButton.text("Seen");
     watchButton.text("Watch");
     detailsDiv = $("<div class='details'>");
@@ -83,6 +84,7 @@ function displayInfo(OMDBCall) {
     detailsDiv.append(buttonDiv);
     buttonDiv.append(watchButton);
     buttonDiv.append(seenButton);
+    buttonDiv.append(infoButton);
     movieObject = {
         Title: OMDBCall.Title,
         Year: OMDBCall.Year,
@@ -143,10 +145,10 @@ function onYouTubeIframeAPIReady(arbitrary) {
 // I want to make it so that clicking on any of the list elements gets their info back up in the discover div
 function infoFromListEl() {
     var movieObject = {
-        Title: $(this).data("title"),
-        Year: $(this).data("year"),
-        Poster: $(this).data("Poster"),
-        videoId: $(this).data("videoid")
+        Title: $(this).parent().data("title"),
+        Year: $(this).parent().data("year"),
+        Poster: $(this).parent().data("Poster"),
+        videoId: $(this).parent().data("videoid")
     }
 
     onYouTubeIframeAPIReady(movieObject);
@@ -182,8 +184,8 @@ function applyActive() {
 // // removeBtn.parent('li').remove();
 
 moviesView.on('click', '.discover', applyActive);
-seenList.on('click', '.seen-item', infoFromListEl);
-watchList.on('click', '.watch-item', infoFromListEl);
+seenList.on('click', '.info-btn', infoFromListEl);
+watchList.on('click', '.info-btn', infoFromListEl);
 // The operands of the conditional (ternary) operator may be of any type. The first operand is
 // evaluated and interpreted as a boolean. If the value of the first operand is truthy, then
 // the second operand is evaluated, and its value is returned. Otherwise, if the first
@@ -220,7 +222,12 @@ function createSeenArray() {
         seenItem.attr("data-year", seenArray[i].Year);
         seenItem.attr("data-poster", seenArray[i].Poster);
         seenItem.attr("data-videoid", seenArray[i].videoId);
-        seenItem.append('<button class="btn btn-danger btn-small delete-item-btn">Remove</button>');
+        deleteBtn = $("<i class='fa-solid fa-circle-xmark'></i>");
+        deleteBtn.addClass("delete-item-btn")
+        seenItem.append(deleteBtn);
+        infoBtn = $("<i class='fa-solid fa-circle-info'></i>");
+        infoBtn.addClass("info-btn")
+        seenItem.append(infoBtn);
         seenList.append(seenItem);
     }
 };
@@ -236,8 +243,17 @@ function createWatchArray() {
         watchItem.attr("data-year", watchArray[i].Year);
         watchItem.attr("data-poster", watchArray[i].Poster);
         watchItem.attr("data-videoid", watchArray[i].videoId);
-        watchItem.append('<button class="btn btn-danger btn-small delete-item-btn">Remove</button>');
-        watchItem.append('<button class="btn btn-danger btn-small seen-item-btn">Seen</button>');
+        // watchItem.append('<button class="btn btn-danger btn-small delete-item-btn">Remove</button>');
+        // watchItem.append('<button class="btn btn-danger btn-small seen-item-btn">Seen</button>');
+        deleteBtn = $("<i class='fa-solid fa-circle-xmark'></i>");
+        deleteBtn.addClass("delete-item-btn")
+        watchItem.append(deleteBtn);
+        seenBtn = $("<i class='fa-solid fa-eye'></i>")
+        seenBtn.addClass("seen-item-btn")
+        watchItem.append(seenBtn);
+        infoBtn = $("<i class='fa-solid fa-circle-info'></i>");
+        infoBtn.addClass("info-btn")
+        watchItem.append(infoBtn);
         watchList.append(watchItem);
     }
 };

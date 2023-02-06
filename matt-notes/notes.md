@@ -34,7 +34,7 @@
 5. Video ID from this function is stored in a variable that is inserted into iFrame video embed DONE
 (lets start off with this a MVP). I want to use the API to retrieve the trailers and display them in a visually appealing way, such as in a grid or a carousel.
 
-6. Make all this information appear presentable on the page. NOT YET. Delegate. Nevermind. Do it yourself. 
+6. Make all this information appear presentable on the page. NOT YET. Delegate. 
 
 7. Applies object keys as classes to generated p elements to apply styles in CSS. DONE 
 
@@ -71,9 +71,13 @@ When generating a discover with the search button, I also need to append a class
 
 21. Make an info button so rather than clicking on the element to show information you need to click on a button. 
 
-22. Make is so that clicking on a non-active discover div, generates the player in the div
+22. Make is so that clicking on a non-active discover div, generates the player in the div. DONE
 
-23. Make the player div appear back in the discover div when clicking search button.
+23. Make the player div appear back in the discover div when clicking search button. DONE
 
-24. Create a remove button on discover divs
+24. Create a remove button on discover divs.
+
+25. Change buttons so that they use font awesome icons.
+
+26. Change JS so that click events trigger on icons and not buttons/seen list elements.
 
