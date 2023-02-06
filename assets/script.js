@@ -39,6 +39,8 @@ function displayInfo(OMDBCall) {
     discoverDiv = $("<div class='discover'>");
     seenButton = $("<button id='seen'>");
     watchButton = $("<button id='watch'>");
+    seenButton.text("Seen");
+    watchButton.text("Watch");
     detailsDiv = $("<div class='details'>");
     moviesView.append(discoverDiv);
     const keys = Object.keys(OMDBCall);
@@ -147,6 +149,8 @@ function applyActive() {
         $(".details").removeClass("active");
         clickedDiscover.addClass("active");
         clickedDiscover.children().addClass("active");
+        clickedDiscover.append($("<div id='player'>"));
+        console.log(clickedDiscover);
     }
 };
 
