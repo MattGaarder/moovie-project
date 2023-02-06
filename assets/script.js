@@ -16,7 +16,7 @@ $("#find-movie").on("click", function (event) {
 
 function OMDBInfoRequest(movieObject) {
     var queryParam = movieObject.Title;
-    var queryURL = "https://www.omdbapi.com/?t=" + queryParam + "&plot=full&apikey=" + OMDBKey;
+    var queryURL = "https://www.omdbapi.com/?t=" + queryParam + "&apikey=" + OMDBKey;
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -72,6 +72,7 @@ function appendElements(OMDBCall) {
     $(".discover").children("#player").remove();
     $(".discover").children("iframe").remove();
     $(".discover").removeClass("active");
+    $(".details").removeClass("active");
         discoverDiv.addClass("active");
         detailsDiv.addClass("active");
     // discoverDiv.append(moviePoster);
@@ -143,7 +144,9 @@ function applyActive() {
         $(".discover").children("#player").remove();
         $(".discover").children("iframe").remove();
         $(".discover").removeClass("active");
+        $(".details").removeClass("active");
         clickedDiscover.addClass("active");
+        clickedDiscover.children().addClass("active");
     }
 };
 

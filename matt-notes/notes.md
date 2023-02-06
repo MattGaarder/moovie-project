@@ -73,5 +73,7 @@ When generating a discover with the search button, I also need to append a class
 
 22. Make is so that clicking on a non-active discover div, generates the player in the div
 
-23. Make the player div appear back in the discover div when click search button
+23. Make the player div appear back in the discover div when clicking search button.
+
+24. Create a remove button on discover divs
 

@@ -18,6 +18,8 @@ body {
   #theLists {
     align-items: center;
     justify-content: center;
+    display: flex;
+    height: 50vh;
   }
   
   #movies-view {
@@ -63,28 +65,30 @@ body {
   flex-direction: column;
   margin: 0%;
   padding: 0%;
+  opacity: 0;
   /* margin-left: 285px; */
 }
 
-.details p.Title {
+.details.active p.Title {
   display: inline;
   font-weight: bold;
   font-size: 35px;
-  position: absolute;
+  /* position: absolute; */
   /* margin-left: 285px; */
   opacity: 1;
   /* width: 50%; */
 }
 
-.details p.Year {
+.details.active p.Year {
     display: inline;
-    position: absolute;
+    /* position: absolute; */
     text-align: right;
     color: rgb(165, 165, 165);
     font-size: 35px;
     /* width: 5%; */
     /* margin-left: 160px; */
     margin-top: 0.01%;
+    opacity: 1;
 }
 
 .details.active p.Title {
@@ -93,6 +97,7 @@ body {
 
 .details p {
   padding-left: 0%;
+  
   margin: 0%;
   padding: 0.1%;
 }
@@ -133,20 +138,61 @@ body {
   flex: 9;
 }
 
-
+.details.active {
+  opacity: 1 !important;
+  padding-left: 21%;
+  padding-top: 2%;
+}
 
 
 
 #theLists {
   display: flex;
+  /* align-items: center; */
+  justify-content:space-evenly;
+  color: rgb(232, 232, 232);
+  width: 101vw;
+  margin-top: 10%;
 }
 
 #seenListDiv {
   display: flex;
   flex-direction: column;
   width: 48%;
-  align-items: center;
-  justify-content: center;
+  /* align-items: stretch; */
+  /* align-items: center;  */
+  /* justify-content: space-between;  */
+  border: 2px solid rgb(22, 22, 22);
+  border-radius: 18px;
+  background-color: rgb(30, 30, 30);
+}
+
+#seenListDiv li {
+  /* padding-left: 2em;
+  padding-bottom: 1.5em; */
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+  width: 100%;
+  padding: 0.5rem;
+  /* justify-content:space-between; */
+}
+
+#seenListDiv button {
+  width: 15%;
+  align-self: flex-end;
+}
+
+
+ul {
+  padding-left: 3%;
+}
+
+
+
+#seenListDiv h1 {
+  display: block;
+  align-self: center;
 }
 
 #watchListDiv {
@@ -155,6 +201,9 @@ body {
   width: 48%;
   align-items: center;
   justify-content: center;
+  border: 2px solid rgb(22, 22, 22);
+  border-radius: 18px;
+  background-color: rgb(30, 30, 30);
 }
 
 @media(max-width: 480px) {
@@ -236,31 +285,7 @@ button {
 } 
 
 
-/* List */
-ul {
-    counter-reset: index;  
-    padding: 0;
-    max-width: 300px;
-  }
-  
-  /* List element */
-  li {
-    counter-increment: index; 
-    display: flex;
-    align-items: center;
-    padding: 12px 0;
-    box-sizing: border-box;
-  }
-  
-  
-  /* Element counter */
 
-  
-  
-  /* Element separation */
-  li + li {
-    border-top: 1px solid rgba(38, 38, 38, 0.2);
-  }
   
   /* @use postcss-preset-env {
     stage: 0;
