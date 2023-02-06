@@ -21,14 +21,15 @@ function OMDBInfoRequest(movieObject) {
         url: queryURL,
         method: "GET"
     }).then(function (OMDBObject) {
-        displayInfo(OMDBObject);
-        movieObject = {
-            Title: OMDBObject.Title,
-            Year: OMDBObject.Year,
-            Poster: OMDBObject.Poster,
-        };
+        displayInfo(OMDBObject)
+        // displayInfo(OMDBObject);//Am commenting this out and putting this in the get trailer function
+        // movieObject = {
+        //     Title: OMDBObject.Title,
+        //     Year: OMDBObject.Year,
+        //     Poster: OMDBObject.Poster,
+        // }; // see comment above: I am going to define this object in the get trailer function
         // console.log(movieObject);
-        getTrailer(movieObject);
+         // I am going to use OMDBObject as an argument rather than movieObject
     })
 };
 
@@ -59,22 +60,20 @@ function displayInfo(OMDBCall) {
         detailsDiv.append(theDeets);
         i++;
     }
-    movieObject = {
-        Title: OMDBCall.Title,
-        Year: OMDBCall.Year,
-        Poster: OMDBCall.Poster,
-    };
+    // movieObject = {
+    //     Title: OMDBCall.Title,
+    //     Year: OMDBCall.Year,
+    //     Poster: OMDBCall.Poster,
+    // };
     // console.log(movieObject);
     // console.log(OMDBCall.Title);
-};
-
-function appendElements(OMDBCall) {
     var imageURL = OMDBCall.Poster;
     discoverDiv.css("background-image", "url(" + imageURL + ")");
     $(".discover").children("#player").remove();
     $(".discover").children("iframe").remove();
     $(".discover").removeClass("active");
     $(".details").removeClass("active");
+    
         discoverDiv.addClass("active");
         detailsDiv.addClass("active");
     // discoverDiv.append(moviePoster);
@@ -83,27 +82,41 @@ function appendElements(OMDBCall) {
     detailsDiv.append(buttonDiv);
     buttonDiv.append(watchButton);
     buttonDiv.append(seenButton);
+    movieObject = {
+        Title: OMDBCall.Title,
+        Year: OMDBCall.Year,
+        Poster: OMDBCall.Poster,
+    };
+    getTrailer(movieObject);
     seenButton.on('click', function () {
         moveToList(OMDBCall, 'seen');
     });
     watchButton.on('click', function () {
         moveToList(OMDBCall, 'watch');
     });
-}
+};
+
+
 
 function getTrailer(movieObject) {
     // console.log(movieObject.Title);
+    console.log(movieObject);
+
+        console.log(movieObject);
     var queryParam = movieObject.Title;
     var queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=" + queryParam + " trailer&key=" + youtubeApiKey;
     $.ajax({
         url: queryURL,
         method: "GET"
     }).then(function (youtubeObject) {
+        
         // console.log(youtubeObject);
         movieObject["videoId"] = youtubeObject.items[0].id.videoId;
-        // console.log(movieObject);
-        appendElements(movieObject);
+        console.log(movieObject);
+        discoverDiv.attr("data-videoid", youtubeObject.items[0].id.videoId);
+        // appendElements(movieObject);
         onYouTubeIframeAPIReady(movieObject)
+        // displayInfo(movieObject);
     })
 };
 
@@ -142,6 +155,10 @@ function infoFromListEl() {
 
 function applyActive() {
     var clickedDiscover = $(this);
+    thingToSend = {
+        videoId: $(this).data("videoid")
+    }
+    console.log($(this).data("videoid"))
     if (!clickedDiscover.hasClass("active")) {
         $(".discover").children("#player").remove();
         $(".discover").children("iframe").remove();
@@ -152,6 +169,7 @@ function applyActive() {
         clickedDiscover.append($("<div id='player'>"));
         console.log(clickedDiscover);
     }
+    onYouTubeIframeAPIReady(thingToSend);
 };
 
 // I need to make it so that when active is applied the youtube player is removed from the active div
