@@ -69,7 +69,9 @@ body {
   }
 
   .details {
-    display: none;
+    /* display: none; */
+    /* transition: display 4s ease-in; */
+    width: 0;
   }
 
 .details.active p.Title {
@@ -100,7 +102,7 @@ body {
 
 .details p {
   padding-left: 0%;
-  
+  width: 38vw;
   margin: 0%;
   padding: 0.1%;
 }
@@ -157,29 +159,33 @@ body {
 }
 
 
-#player {
-  position: relative;
-  /* padding-top: -5%; */
-  /* padding-right: 0.8%;  */
-  width: 50vw;
-  height: 69vh;
-  float: right;
-  display: inline;
-  border-radius: 18px;
-}
+
 
 
 .discover.active {
   flex: 9;
+  display: flex;
+
 }
 
-
+#player {
+  position: absolute;
+  /* padding-top: -5%; */
+  /* padding-right: 0.8%;  */
+  width: 33vw;
+  height: 69vh;
+  right: 0;
+  /* align-self: flex-end; */
+  /* display: inline-block; */
+  border-radius: 18px;
+}
 
 .details.active {
   opacity: 1 !important;
   padding-left: 24%;
   padding-top: 2%;
   display: flex;
+
 }
 
 

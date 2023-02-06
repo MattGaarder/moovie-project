@@ -9,6 +9,7 @@ $("#find-movie").on("click", function (event) {
     movieObject = {
         Title: $("#find-input").val()
     };
+    $("#find-input").val("");
     event.preventDefault();
     OMDBInfoRequest(movieObject);
     // getTrailer()
@@ -166,10 +167,14 @@ function applyActive() {
         $(".details").removeClass("active");
         clickedDiscover.addClass("active");
         clickedDiscover.children().addClass("active");
-        clickedDiscover.append($("<div id='player'>"));
+        setTimeout(function() {
+            clickedDiscover.append($("<div id='player'>"));
+            onYouTubeIframeAPIReady(thingToSend);
+        }, 1000)
+        
         console.log(clickedDiscover);
     }
-    onYouTubeIframeAPIReady(thingToSend);
+    
 };
 
 // I need to make it so that when active is applied the youtube player is removed from the active div
