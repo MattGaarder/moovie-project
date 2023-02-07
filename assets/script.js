@@ -178,7 +178,7 @@ function applyActive() {
         setTimeout(function() {
             clickedDiscover.append($("<div id='player'>"));
             onYouTubeIframeAPIReady(thingToSend);
-        }, 100)
+        }, 10)
         
         console.log(clickedDiscover);
     }

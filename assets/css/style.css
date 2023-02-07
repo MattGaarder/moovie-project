@@ -119,6 +119,16 @@ body {
   
   }
 
+  .details.active p {
+    opacity: 1 !important;
+    /* padding-left: 24%; */
+    padding-left: 4%;
+    padding-top: 1%;
+    display: block;
+    width: 36vw;
+  
+  }
+
 .details.active p.Title {
   display: block;
   font-weight: bold;
@@ -192,7 +202,7 @@ body {
   width: 18.6vw;
   background-size: auto 100%; 
   background-repeat: no-repeat;
-  border-radius: 18px;
+  border-radius: 18px 0 0 18px;
   transition: width 0.6s ease-in;
 }
 .discover .poster {
@@ -248,7 +258,7 @@ body {
   /* padding-top: -5%; */
   /* padding-right: 0.8%;  */
   width: 33vw;
-  height: 50vh;
+  height: 49.5vh;
   right: 0;
   /* align-self: flex-end; */
   /* display: inline-block; */
@@ -389,7 +399,7 @@ ul {
 
 
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 780px) {
   #movies-view {
     width: 100vw;
   }
@@ -408,7 +418,7 @@ ul {
     opacity: 1 !important;
     padding-top: 1%;
     display: block;
-    width: 40vw; 
+    width: 33vw; 
   }
   #buttonDiv {
     justify-content: space-evenly;
@@ -447,6 +457,58 @@ ul {
     background-repeat: no-repeat;
     border-radius: 18px;
     transition: width 0.6s ease-in;
+  }
+  .discover.active {
+    flex: 9;
+    display: flex;
+    width: 100%;
+    height: 60vh;
+  }
+  .discover {
+    margin-top: 1%;
+    display: flex;
+    flex-direction: row;
+    /* padding: 1em; */
+    border: 2px solid rgb(22, 22, 22);
+    border-radius: 18px;
+    background-color: rgb(30, 30, 30);
+    background-size: auto 100%; 
+    background-repeat: no-repeat;
+    height: 60vh;
+    cursor: pointer;
+    color: rgb(232, 232, 232);
+    flex: 0.4;
+    /* margin: 2px; */
+    position: relative;
+    transition: flex 0.7s ease-in;
+    box-shadow: 10px 10px rgb(36, 36, 36);
+    /* I am adding a transition on the flex property, so when this property changes it is not instantaneous */
+    /* I am making position relative so that I can make elements inside have position absolute */
+    /* flex will be the value that I will be changing for when the discover divs are active or inactive 
+    (how much space they will occupy relative to each other */
+    /* background-size auto is good for like centering a background image so that 
+    it does not warp the aspect ratio on different sizes. background-position also good for this.
+    background-repeat: no-repeat also highly recommended*/
+  }
+  #player {
+    position: absolute;
+    display: block;
+    /* padding-top: -5%; */
+    /* padding-right: 0.8%;  */
+    width: 33vw;
+    height: 59.5vh;
+    right: 0;
+    /* align-self: flex-end; */
+    /* display: inline-block; */
+    border-radius: 18px;
+  }
+  #theLists {
+    display: flex;
+    /* align-items: center; */
+    justify-content:space-evenly;
+    color: rgb(232, 232, 232);
+    width: 101vw;
+    margin-top: 9%;
   }
 }
 
