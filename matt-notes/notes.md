@@ -77,7 +77,10 @@ When generating a discover with the search button, I also need to append a class
 
 24. Create a remove button on discover divs.
 
-25. Change buttons so that they use font awesome icons.
+25. Change buttons so that they use font awesome icons. DONE
 
-26. Change JS so that click events trigger on icons and not buttons/seen list elements.
+26. Change JS so that click events trigger on icons and not buttons/seen list elements. DONE
+
+27. Make Posters not disappear when scrolling through
+
 

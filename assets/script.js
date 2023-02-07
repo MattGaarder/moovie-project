@@ -74,11 +74,13 @@ function displayInfo(OMDBCall) {
     // discoverDiv.css("background-image", "url(" + imageURL + ")");
     $(".discover").children("#player").remove();
     $(".discover").children("iframe").remove();
+    $(".poster").removeClass("active");
     $(".discover").removeClass("active");
     $(".details").removeClass("active");
     
         discoverDiv.addClass("active");
         detailsDiv.addClass("active");
+        posterDiv.addClass("active");
         posterDiv.css("background-image", "url(" + imageURL + ")");
     discoverDiv.append(posterDiv);
     discoverDiv.append(detailsDiv);
@@ -169,6 +171,7 @@ function applyActive() {
         $(".discover").children("iframe").remove();
         $(".discover").removeClass("active");
         $(".details").removeClass("active");
+        $(".poster").removeClass("active");
         clickedDiscover.addClass("active");
         clickedDiscover.children().addClass("active");
         // I thought the non-smooth scrolling was because of the player div suddenly manifesting
