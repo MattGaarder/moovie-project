@@ -12,7 +12,7 @@
   border: 2px solid rgb(22, 22, 22);
 }
 
-h1 {
+.header h1 {
   color: rgb(232, 232, 232);
   margin-top: 10%;
   font-size: 36px;
@@ -81,6 +81,7 @@ body {
     margin: 0%;
     padding: 0%;
     opacity: 0;
+    transition: opacity 0.8s ease-in;
     /* margin-left: 285px; */
   }
 
@@ -137,6 +138,7 @@ body {
   width: 38vw;
   margin: 0%;
   padding: 0.1%;
+  display: block;
 }
 
 /* .details.active button {
@@ -202,6 +204,7 @@ body {
 
 #player {
   position: absolute;
+  display: block;
   /* padding-top: -5%; */
   /* padding-right: 0.8%;  */
   width: 33vw;
@@ -216,7 +219,7 @@ body {
   opacity: 1 !important;
   /* padding-left: 24%; */
   padding-top: 2%;
-  display: flex;
+  display: block;
 
 }
 
@@ -231,6 +234,71 @@ body {
   margin-top: 10%;
 }
 
+
+
+#seenListDiv li {
+  /* padding-left: 2em;
+  padding-bottom: 1.5em; */
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+  align-items: center;
+  font-size: larger;
+  width: 100%;
+  padding: 0.5rem;
+  margin: 0.5rem;
+  padding-left:25px;
+  background-color: #343434;
+  border-radius: 20px;
+  
+  /* justify-content:space-between; */
+}
+
+#seenListDiv li:hover {
+  background-color: #202020;
+}
+
+#watchListDiv li {
+  /* padding-left: 2em;
+  padding-bottom: 1.5em; */
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+  width: 100%;
+  padding: 0.5rem;
+  /* justify-content:space-between; */
+}
+
+ul {
+  padding-left: 3%;
+  padding-right: 3%;
+}
+
+
+
+#seenListDiv h1 {
+  margin-top: 2%;
+  display: block;
+  align-self: center;
+}
+
+#watchListDiv h1 {
+  margin-top: 2%;
+  display: block;
+  align-self: center;
+}
+
+#listButtonDiv i {
+  font-size: 150%;
+  padding: 0.25rem;
+  padding-right: 0.5rem;;
+}
+
+#listButtonDiv i:hover {
+  color: rgb(85, 85, 85);
+  
+}
+
 #seenListDiv {
   display: flex;
   flex-direction: column;
@@ -243,72 +311,17 @@ body {
   background-color: rgb(30, 30, 30);
 }
 
-#seenListDiv li {
-  /* padding-left: 2em;
-  padding-bottom: 1.5em; */
-  display: flex;
-  justify-content: space-between;
-  text-align: left;
-  width: 100%;
-  padding: 0.5rem;
-  /* justify-content:space-between; */
-}
-
-
-#watchListDiv li {
-  /* padding-left: 2em;
-  padding-bottom: 1.5em; */
-  display: flex;
-  /* justify-content: space-between; */
-  text-align: left;
-  width: 100%;
-  padding: 0.5rem;
-  /* justify-content:space-between; */
-}
-
-
-
-#seenListDiv button {
-  width: 15%;
-  /* align-self: flex-end; */
-}
-
-
-ul {
-  padding-left: 3%;
-}
-
-
-
-#seenListDiv h1 {
-  display: block;
-  align-self: center;
-}
-
-#watchListDiv h1 {
-  display: block;
-  align-self: center;
-}
-
 #watchListDiv {
   display: flex;
   flex-direction: column;
   width: 48%;
-  /* align-items: stretch; */
-  /* align-items: center;  */
   /* justify-content: space-between;  */
-  justify-content: flex-end;
   border: 2px solid rgb(22, 22, 22);
   border-radius: 18px;
   background-color: rgb(30, 30, 30);
 }
 
-#watchListDiv button {
-  width: 15%;
-  display: inline;
-  /* align-self: flex-end; */
-  margin-left: 30%;
-}
+
 
 @media(max-width: 480px) {
   #movies-view {
@@ -319,11 +332,6 @@ ul {
     display: none;
   }
   /* colon is a pseudo-selector. It will get the last 2 of the .discover type (get 4 and 5, and don't display them if width is below 480pxs*/
-}
-
-button {
-    /* height: 40px;
-    width: 100px; */
 }
 
 
@@ -377,11 +385,12 @@ button {
 }
 
 .button-56:active {
-  background-color: #5c5c5c;
+  background-color: #808080;
   outline: 0;
 }
 
 .button-56:hover {
+  background-color: #8c8c8c;
   outline: 0;
 }
 

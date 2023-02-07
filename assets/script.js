@@ -149,10 +149,10 @@ function onYouTubeIframeAPIReady(arbitrary) {
 // I want to make it so that clicking on any of the list elements gets their info back up in the discover div
 function infoFromListEl() {
     var movieObject = {
-        Title: $(this).parent().data("title"),
-        Year: $(this).parent().data("year"),
-        Poster: $(this).parent().data("Poster"),
-        videoId: $(this).parent().data("videoid")
+        Title: $(this).parent().parent().data("title"),
+        Year: $(this).parent().parent().data("year"),
+        Poster: $(this).parent().parent().data("Poster"),
+        videoId: $(this).parent().parent().data("videoid")
     }
 
     onYouTubeIframeAPIReady(movieObject);
@@ -249,15 +249,19 @@ function createLists(array, parent) {
         item.attr("data-year", array[i].Year);
         item.attr("data-poster", array[i].Poster);
         item.attr("data-videoid", array[i].videoId);
-        deleteBtn = $("<i class='fa-solid fa-circle-xmark'></i>");
-        deleteBtn.addClass("delete-item-btn")
-        item.append(deleteBtn);
-        seenBtn = $("<i class='fa-solid fa-eye'></i>")
-        seenBtn.addClass("seen-item-btn")
-        item.append(seenBtn);
+        listButtonDiv = $("<div id='listButtonDiv'>");
+        if(parent === watchList) {
+            seenBtn = $("<i class='fa-solid fa-eye'></i>")
+            seenBtn.addClass("seen-item-btn")
+            listButtonDiv.append(seenBtn);
+        }
         infoBtn = $("<i class='fa-solid fa-circle-info'></i>");
         infoBtn.addClass("info-btn")
-        item.append(infoBtn);
+        listButtonDiv.append(infoBtn);
+        item.append(listButtonDiv)
+        deleteBtn = $("<i class='fa-solid fa-circle-xmark'></i>");
+        deleteBtn.addClass("delete-item-btn")
+        listButtonDiv.append(deleteBtn);
         parent.append(item);
     }
 }
@@ -293,7 +297,7 @@ var watchArray;
 function moveToSeen(event) {
     var seenArray = JSON.parse(localStorage.getItem("seenArray"));
     var moveToSeenObject = {
-        Title: $(event.target).parent().data("title")
+        Title: $(event.target).parent().parent().data("title")
     }
     seenArray.push(moveToSeenObject);
     localStorage.setItem("seenArray", JSON.stringify(seenArray));
@@ -301,7 +305,7 @@ function moveToSeen(event) {
     createSeenArray();
     var watchArray = JSON.parse(localStorage.getItem("watchArray"));
     for(var i = 0; i < watchArray.length; i++) {
-        if(watchArray[i].Title === $(event.target).parent().data("title")){
+        if(watchArray[i].Title === $(event.target).parent().parent().data("title")){
             watchArray.splice(i, 1);
             break;
         }
@@ -324,12 +328,12 @@ watchList.on('click', '.seen-item-btn', moveToSeen);
 
 function removeItem(event) {
     var removeBtn = $(event.target);
-    var whichList = removeBtn.parent().parent().data("list");
+    var whichList = removeBtn.parent().parent().parent().data("list");
     // console.log(whichList); // this logs to either seen or watch depending on the list
     var listArray = JSON.parse(localStorage.getItem(whichList + "Array"))
     // console.log(listArray);
     for(var i = 0; i < listArray.length; i++) {
-        if(listArray[i].Title === $(event.target).parent().data("title")){
+        if(listArray[i].Title === $(event.target).parent().parent().data("title")){
             listArray.splice(i, 1);
             
             break;
@@ -337,7 +341,7 @@ function removeItem(event) {
     } 
     localStorage.setItem(whichList + "Array", JSON.stringify(listArray));
     // this function works fine up until this point
-    removeBtn.parent('li').remove();
+    removeBtn.parent().parent('li').remove();
     // if(whichList === "seen"){
     //     clearArray(seenList);
     //     createSeenArray();
