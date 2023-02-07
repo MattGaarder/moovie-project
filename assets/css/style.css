@@ -190,7 +190,7 @@ body {
   justify-content: space-evenly;
   display: flex;
   width: 30vw;
-  padding-top: 3rem;
+  padding-top: 2rem;
   padding-left: 1rem;
 }
 
@@ -253,10 +253,18 @@ body {
   padding: 0.25rem;
   padding-right: 0.5rem;;
   z-index: 1;
+  padding: 0.8rem;
+  padding-right: 1.9rem;
+  color: rgb(45, 45, 45);
+  border: 2px solid rgb(22, 22, 22);
+  border-radius: 18px;
+  background-color: #c9c9c9;
+  box-shadow: 10px 10px rgb(17, 17, 17);
 }
 
 #buttonDiv i:hover {
   background-color: #1a1a1a;
+  color: #c9c9c9;
 }
 
 #seenListDiv li {
