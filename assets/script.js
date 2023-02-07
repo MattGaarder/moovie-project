@@ -213,6 +213,8 @@ function moveToList(movieObject, list) {
         } else {
             createWatchArray();
         }
+        watchListHeight();
+        seenListHeight();
 }
 
 
@@ -303,6 +305,7 @@ function moveToSeen(event) {
     localStorage.setItem("seenArray", JSON.stringify(seenArray));
     clearArray(seenList);
     createSeenArray();
+    seenListHeight();
     var watchArray = JSON.parse(localStorage.getItem("watchArray"));
     for(var i = 0; i < watchArray.length; i++) {
         if(watchArray[i].Title === $(event.target).parent().parent().data("title")){
@@ -313,6 +316,7 @@ function moveToSeen(event) {
     localStorage.setItem("watchArray", JSON.stringify(watchArray));
     clearArray(watchList);
     createWatchArray();
+    watchListHeight();
 }
 
 // so far this removes the item from the watchArray. I could a. remove the item with the removeItem function
@@ -342,6 +346,8 @@ function removeItem(event) {
     localStorage.setItem(whichList + "Array", JSON.stringify(listArray));
     // this function works fine up until this point
     removeBtn.parent().parent('li').remove();
+    watchListHeight();
+    seenListHeight();
     // if(whichList === "seen"){
     //     clearArray(seenList);
     //     createSeenArray();
@@ -351,8 +357,24 @@ function removeItem(event) {
     // }
 };
 
-
-
+function watchListHeight() {
+    console.log($("#watchListDiv li"))
+    var listCount = $("#watchListDiv li").length;
+    var height = (listCount * 50) + 180;
+    $("#watchListDiv").height(height);
+}
+watchListHeight();
+function seenListHeight() {
+    var listCount = $("#seenListDiv li").length;
+    var height = (listCount * 50) + 180;
+    $("#seenListDiv").height(height);
+}
+seenListHeight();
+// $(document).ready(function() {
+//     var listCount = $("#watchListDiv li").length;
+//     var height = listCount * 40; // 40 is the height of each <li> element
+//     $("#watchListDiv").height(height);
+//   });
 
 
 
