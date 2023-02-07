@@ -43,8 +43,8 @@ function displayInfo(OMDBCall) {
     seenButton = $("<i id='seen' class='fa-solid fa-eye'></i>")
     watchButton = $("<i id='watch' class='fa-solid fa-square-plus'></i>");
     // infoButton = $("<i class='fa-solid fa-circle-info'></i>")
-    seenButton.text("Seen");
-    watchButton.text("Watch");
+    seenButton.text(" Seen");
+    watchButton.text(" Watch");
     detailsDiv = $("<div class='details'>");
     moviesView.append(discoverDiv);
     const keys = Object.keys(OMDBCall);
