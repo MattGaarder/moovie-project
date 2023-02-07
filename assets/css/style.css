@@ -101,11 +101,25 @@ body {
     width: 0vw;
   }
 
-  
+  .details p {
+    padding-left: 0%;
+    width: 30vw;
+    margin: 0%;
+    padding: 0.1%;
+    display: block;
+  }
 
+  .details.active {
+    opacity: 1 !important;
+    /* padding-left: 24%; */
+    padding-top: 2%;
+    display: block;
+    width: 30vw;
+  
+  }
 
 .details.active p.Title {
-  display: inline;
+  display: block;
   font-weight: bold;
   font-size: 35px;
   white-space: nowrap;
@@ -116,19 +130,27 @@ body {
 }
 
 .details.active p.Year {
-    display: block;
+    display: inline;
     /* position: absolute; */
     text-align: right;
     color: rgb(165, 165, 165);
     font-size: 35px;
-    width: 5%;
+    width: 50%;
     /* margin-left: 160px; */
-    margin-top: 0.01%;
+    margin-top: 0.1%;
     opacity: 1;
 }
 
+.details.active p.Rated {
+  font-size: larger;
+  display: inline;
+  width: 30%;
+  white-space: nowrap;
+  margin-left: 1%;
+}
+
 .discover .poster.active {
-  width: 22vw;
+  width: 18.6vw;
   background-size: auto 100%; 
   background-repeat: no-repeat;
   border-radius: 18px;
@@ -144,39 +166,6 @@ body {
 .details.active p.Title {
   opacity: 1;
 }
-
-.details p {
-  padding-left: 0%;
-  width: 38vw;
-  margin: 0%;
-  padding: 0.1%;
-  display: block;
-}
-
-/* .details.active button {
-  cursor: pointer;
-  text-align: center;
-  display: inline-block;
-  padding: 0.5rem 1.2rem;
-  margin: 0;
-  text-decoration: none;
-  font-size: 1rem;
-  border-radius: 0.3rem;
-  border: 1px solid transparent;
-  outline: none;
-  color: #1a1a1a;
-  background-color: #aeaeae;
-  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
-  background-color: #e64c66;
-  color: #ffffff;
-  -webkit-appearance: button;
-  font-family: inherit;
-  font-size: 100%;
-  line-height: 1.15;
-  margin: 0;
-  height: 3rem;
-  width: 9rem;
-} */
 
 .details p.Rated {
     display: inline;
@@ -227,13 +216,8 @@ body {
   border-radius: 18px;
 }
 
-.details.active {
-  opacity: 1 !important;
-  /* padding-left: 24%; */
-  padding-top: 2%;
-  display: block;
 
-}
+
 
 
 
