@@ -122,7 +122,7 @@ body {
   .details.active p {
     opacity: 1 !important;
     /* padding-left: 24%; */
-    padding-left: 4%;
+    padding-left: 6%;
     padding-top: 1%;
     display: block;
     width: 36vw;
@@ -159,13 +159,15 @@ body {
   width: 30%;
   white-space: nowrap;
   margin-left: 1.3%;
+  padding-left: 0%;
 }
 
 .details.active p.Runtime {
   display: inline-block;
   width: 15%;
-  margin-left: 1%;
+  margin-left: -5.1%;
   color: rgb(165, 165, 165);
+  white-space: nowrap;
 }
 
 .details.active p.Genre {
@@ -228,7 +230,7 @@ body {
   justify-content: space-evenly;
   display: flex;
   width: 25vw;
-  padding-top: 2rem;
+  padding-top: 1.5rem;
   padding-left: 1rem;
 }
 
@@ -282,7 +284,8 @@ body {
 
 
 .discover i {
-  font-size: 130%;
+  font-size: 100%;
+  max-width: 40%;
   padding: 0.25rem;
   padding-right: 0.5rem;;
   z-index: 1;
@@ -403,6 +406,7 @@ ul {
   #movies-view {
     width: 100vw;
   }
+  .discover:nth-of-type(3),
   .discover:nth-of-type(4),
   .discover:nth-of-type(5) {
     display: none;
@@ -423,7 +427,7 @@ ul {
   #buttonDiv {
     justify-content: space-evenly;
     display: flex;
-    padding-top: 2rem;
+    padding-top: 1rem;
     padding-left: 1rem;
   }
   #theLists {
@@ -434,7 +438,7 @@ ul {
     margin-top: 15%;
   }
   .discover i {
-    font-size: 90%;
+    font-size: 70%;
     padding-right: 0rem;;
     z-index: 1;
     padding: 0.8rem;
@@ -462,7 +466,7 @@ ul {
     flex: 9;
     display: flex;
     width: 100%;
-    height: 60vh;
+    height: 62vh;
   }
   .discover {
     margin-top: 1%;
@@ -474,7 +478,7 @@ ul {
     background-color: rgb(30, 30, 30);
     background-size: auto 100%; 
     background-repeat: no-repeat;
-    height: 60vh;
+    height: 62vh;
     cursor: pointer;
     color: rgb(232, 232, 232);
     flex: 0.4;
@@ -496,7 +500,7 @@ ul {
     /* padding-top: -5%; */
     /* padding-right: 0.8%;  */
     width: 33vw;
-    height: 59.5vh;
+    height: 61.5vh;
     right: 0;
     /* align-self: flex-end; */
     /* display: inline-block; */
@@ -508,7 +512,7 @@ ul {
     justify-content:space-evenly;
     color: rgb(232, 232, 232);
     width: 101vw;
-    margin-top: 9%;
+    margin-top: 10%;
   }
 }
 
