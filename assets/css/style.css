@@ -290,7 +290,7 @@ body {
   color: #c9c9c9;
 }
 
-#seenListDiv li {
+#seenListCard li {
   /* padding-left: 2em;
   padding-bottom: 1.5em; */
   display: flex;
@@ -308,11 +308,11 @@ body {
   /* justify-content:space-between; */
 }
 
-#seenListDiv li:hover {
+#seenListCard li:hover {
   background-color: #1a1a1a;
 }
 
-#watchListDiv li {
+#watchListCard li {
   /* padding-left: 2em;
   padding-bottom: 1.5em; */
   display: flex;
@@ -329,7 +329,7 @@ body {
   /* justify-content:space-between; */
 }
 
-#watchListDiv li:hover {
+#watchListCard li:hover {
   background-color: #1a1a1a;
 }
 
@@ -340,13 +340,13 @@ ul {
 
 
 
-#seenListDiv h1 {
+#seenListCard h1 {
   margin-top: 2%;
   display: block;
   align-self: center;
 }
 
-#watchListDiv h1 {
+#watchList h1 {
   margin-top: 2%;
   display: block;
   align-self: center;
@@ -363,7 +363,7 @@ ul {
   
 }
 
-#seenListDiv {
+#seenListCard {
   display: flex;
   flex-direction: column;
   width: 48%;
@@ -376,7 +376,7 @@ ul {
   box-shadow: 10px 10px rgb(36, 36, 36);
 }
 
-#watchListDiv {
+#watchListCard {
   display: flex;
   flex-direction: column;
   width: 48%;
