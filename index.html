@@ -9,20 +9,16 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 
-<!-- <div class="hero"></div> -->
 
 <body>
-    <div class="header">
-        <div class="container">
-            <h1>Find Moo-vie!</h1>
-            <form id="movie-form">
-                <label for="movie-input"></label>
-                <input type="text" id="find-input"><br>
-                <button class="button-56" role="button" id="find-movie">Deet me!</button>
-                <!-- <input id="find-movie" class="button-56" type="submit" value="Discover a Movie!"> -->
-            </form>
-        </div>
-    </div>
+<!-- Nav bar/header-->
+    <nav class="header navbar navbar-light bg-light">
+        <a class="navbar-brand"></a>
+        <form class="form-inline">
+          <input id="find-input" class="form-control mr-sm-2" type="text" placeholder="I am here" aria-label="Search">
+          <button class="button-56 btn btn-outline-success my-2 my-sm-0" id="find-movie" type="submit" role="button">Find me!</button>
+        </form>
+      </nav>
 
     <div id="movies-view"></div>
 
@@ -30,7 +26,7 @@
 
     <!-- Movies will get dumped here -->
     <div id="theLists">
-    <div id="watchListCard" class="card" style="width: 30rem;">
+    <div id="watchListCard" class="card" style="width: 40rem;">
         <div class="card-header">
           Watch list
         </div>
@@ -39,7 +35,7 @@
       </div>
 
 
-      <div id="seenListCard" class="card" style="width: 30rem;">
+      <div id="seenListCard" class="card" style="width: 40rem;">
         <div class="card-header">
           Seen list
         </div>
@@ -48,20 +44,6 @@
       </div>
     </div>
 
-
-    <!-- <div id="theLists">
-        <div id="watchListDiv">
-            <h1>Watch List</h1>
-            <ul id="watchList" data-list="watch">
-            </ul>
-        </div>
-        <div id="seenListDiv">
-            <h1>Seen List</h1>
-            <ul id="seenList" data-list="seen">
-            </ul>
-        </div>
-    </div> 
--->
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
