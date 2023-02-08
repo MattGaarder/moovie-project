@@ -83,5 +83,11 @@ When generating a discover with the search button, I also need to append a class
 
 27. Make Posters not disappear when scrolling through. DONE
 
-28. Make page responsive with smaller screens
+28. Make page responsive with smaller screens. DONE
+
+29. Make page responsive with even smaller screen (phone).
+
+30. Create logic in JS that states if #movie-view.length > 1 change the width of the details p elements (width larger)
+
+Things to do on last day and I'm happy: Remove button on discover div, Media queries better and for phone, logic for discover div children, rotten score in discover div. 
 
