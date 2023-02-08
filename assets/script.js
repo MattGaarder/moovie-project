@@ -30,7 +30,7 @@ function OMDBInfoRequest(movieObject) {
         //     Poster: OMDBObject.Poster,
         // }; // see comment above: I am going to define this object in the get trailer function
         // console.log(movieObject);
-         // I am going to use OMDBObject as an argument rather than movieObject
+        // I am going to use OMDBObject as an argument rather than movieObject
     })
 };
 
@@ -54,10 +54,10 @@ function displayInfo(OMDBCall) {
         if (i === 3 || i === 7 || i === 11) {
             i++;
             continue;
-//The continue statement is similar to the break statement. Instead of exiting a loop,
-// however, continue restarts a loop at the next iteration.
-// When the continue statement is executed, the current iteration of the enclosing loop
-// is terminated, and the next iteration begins.
+            //The continue statement is similar to the break statement. Instead of exiting a loop,
+            // however, continue restarts a loop at the next iteration.
+            // When the continue statement is executed, the current iteration of the enclosing loop
+            // is terminated, and the next iteration begins.
         }
         var theDeets = $("<p>").text(OMDBCall[key]).addClass(key);
         detailsDiv.append(theDeets);
@@ -77,11 +77,11 @@ function displayInfo(OMDBCall) {
     $(".poster").removeClass("active");
     $(".discover").removeClass("active");
     $(".details").removeClass("active");
-    
-        discoverDiv.addClass("active");
-        detailsDiv.addClass("active");
-        posterDiv.addClass("active");
-        posterDiv.css("background-image", "url(" + imageURL + ")");
+
+    discoverDiv.addClass("active");
+    detailsDiv.addClass("active");
+    posterDiv.addClass("active");
+    posterDiv.css("background-image", "url(" + imageURL + ")");
     discoverDiv.append(posterDiv);
     discoverDiv.append(detailsDiv);
     discoverDiv.append(playerDiv);
@@ -109,14 +109,14 @@ function getTrailer(movieObject) {
     // console.log(movieObject.Title);
     console.log(movieObject);
 
-        console.log(movieObject);
+    console.log(movieObject);
     var queryParam = movieObject.Title;
     var queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=" + queryParam + " trailer&key=" + youtubeApiKey;
     $.ajax({
         url: queryURL,
         method: "GET"
     }).then(function (youtubeObject) {
-        
+
         // console.log(youtubeObject);
         movieObject["videoId"] = youtubeObject.items[0].id.videoId;
         console.log(movieObject);
@@ -175,14 +175,14 @@ function applyActive() {
         clickedDiscover.addClass("active");
         clickedDiscover.children().addClass("active");
         // I thought the non-smooth scrolling was because of the player div suddenly manifesting
-        setTimeout(function() {
+        setTimeout(function () {
             clickedDiscover.append($("<div id='player'>"));
             onYouTubeIframeAPIReady(thingToSend);
         }, 10)
-        
+
         console.log(clickedDiscover);
     }
-    
+
 };
 
 // I need to make it so that when active is applied the youtube player is removed from the active div
@@ -200,21 +200,21 @@ watchList.on('click', '.info-btn', infoFromListEl);
 
 function moveToList(movieObject, list) {
     var listArray = JSON.parse(localStorage.getItem(list + "Array")) || [];
-    for(var i = 0; i < listArray.length; i++) {
-        if(movieObject.Title === listArray[i].Title) {
+    for (var i = 0; i < listArray.length; i++) {
+        if (movieObject.Title === listArray[i].Title) {
             return;
         }
     }
-        clearArray(list === 'seen' ? seenList : watchList);
-        listArray.push(movieObject);
-        localStorage.setItem(list + "Array", JSON.stringify(listArray));
-        if (list === 'seen') {
-            createSeenArray();
-        } else {
-            createWatchArray();
-        }
-        watchListHeight();
-        seenListHeight();
+    clearArray(list === 'seen' ? seenList : watchList);
+    listArray.push(movieObject);
+    localStorage.setItem(list + "Array", JSON.stringify(listArray));
+    if (list === 'seen') {
+        createSeenArray();
+    } else {
+        createWatchArray();
+    }
+    watchListHeight();
+    seenListHeight();
 }
 
 
@@ -237,13 +237,13 @@ function createSeenArray() {
     //     infoBtn.addClass("info-btn")
     //     seenItem.append(infoBtn);
     //     seenList.append(seenItem);
-    createLists (seenArray, seenList);
+    createLists(seenArray, seenList);
     // }
 };
 createSeenArray();
 
 function createLists(array, parent) {
-    for(var i = 0; i < array.length; i++) {
+    for (var i = 0; i < array.length; i++) {
         var item = $("<li>");
         item.text(array[i].Title);
         item.addClass("watch-item");
@@ -252,7 +252,7 @@ function createLists(array, parent) {
         item.attr("data-poster", array[i].Poster);
         item.attr("data-videoid", array[i].videoId);
         listButtonDiv = $("<div id='listButtonDiv'>");
-        if(parent === watchList) {
+        if (parent === watchList) {
             seenBtn = $("<i class='fa-solid fa-eye'></i>")
             seenBtn.addClass("seen-item-btn")
             listButtonDiv.append(seenBtn);
@@ -290,7 +290,7 @@ function createWatchArray() {
     //     watchList.append(watchItem);
     // }
     console.log("creating watch list");
-    createLists (watchArray, watchList);
+    createLists(watchArray, watchList);
 };
 createWatchArray();
 
@@ -307,12 +307,12 @@ function moveToSeen(event) {
     createSeenArray();
     seenListHeight();
     var watchArray = JSON.parse(localStorage.getItem("watchArray"));
-    for(var i = 0; i < watchArray.length; i++) {
-        if(watchArray[i].Title === $(event.target).parent().parent().data("title")){
+    for (var i = 0; i < watchArray.length; i++) {
+        if (watchArray[i].Title === $(event.target).parent().parent().data("title")) {
             watchArray.splice(i, 1);
             break;
         }
-    } 
+    }
     localStorage.setItem("watchArray", JSON.stringify(watchArray));
     clearArray(watchList);
     createWatchArray();
@@ -336,13 +336,13 @@ function removeItem(event) {
     // console.log(whichList); // this logs to either seen or watch depending on the list
     var listArray = JSON.parse(localStorage.getItem(whichList + "Array"))
     // console.log(listArray);
-    for(var i = 0; i < listArray.length; i++) {
-        if(listArray[i].Title === $(event.target).parent().parent().data("title")){
+    for (var i = 0; i < listArray.length; i++) {
+        if (listArray[i].Title === $(event.target).parent().parent().data("title")) {
             listArray.splice(i, 1);
-            
+
             break;
         }
-    } 
+    }
     localStorage.setItem(whichList + "Array", JSON.stringify(listArray));
     // this function works fine up until this point
     removeBtn.parent().parent('li').remove();
