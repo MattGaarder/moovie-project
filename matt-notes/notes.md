@@ -89,5 +89,5 @@ When generating a discover with the search button, I also need to append a class
 
 30. Create logic in JS that states if #movie-view.length > 1 change the width of the details p elements (width larger)
 
-Things to do on last day and I'm happy: Remove button on discover div, Media queries better and for phone, logic for discover div children, rotten score in discover div. 
+Things to do on last day and I'm happy: Remove button on discover div, Media queries better and for phone, logic for discover div children (should also write logic for the margin-top of #theLists divs), rotten score in discover div. 
 
