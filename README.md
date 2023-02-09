@@ -9,7 +9,7 @@ Movie-search is created to address the users' need to create own library and sto
 
 ## Links
 Repo URL: https://github.com/MattGaarder/moovie-project
-Website URL: https://github.com/TBC
+Website URL: https://mattgaarder.github.io/moovie-project/
 
 ## Screenshot
 ! [alt text: screetshot of the moooovie web project](./assets/Screenshot_TBC.jpeg)
