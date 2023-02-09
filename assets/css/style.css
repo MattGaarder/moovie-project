@@ -8,6 +8,38 @@
   display: flex;
   align-items: center;
   width: 100vw;
+  background-color: rgb(30, 30, 30);
+  border: 2px solid rgb(22, 22, 22);
+  box-shadow: 10px 10px rgb(36, 36, 36);
+  border-radius: 18px;
+  padding: 10px;
+}
+
+.navbar {
+  background-image: url(../images/New_Navbar_background_image.png);
+    height: 130px;
+    width: 100%;
+    background-repeat: no-repeat;
+  }
+
+  .button-56 {
+    width: 120px;
+  }
+
+
+.header {
+  display: flex;
+  align-items: center;
+  width: 100vw;
+  border: 2px solid rgb(22, 22, 22);
+  box-shadow: 10px 10px rgb(36, 36, 36);
+  border-radius: 18px;
+}
+
+/*.header {
+  display: flex;
+  align-items: center;
+  width: 100vw;
   background-color: rgb(255, 255, 255);
   border-bottom: 2px solid rgb(22, 22, 22);
   box-shadow: 10px 10px rgb(36, 36, 36);
