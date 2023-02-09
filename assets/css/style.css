@@ -1,4 +1,4 @@
-  @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,100&display=swap');
 /* Border-box allows it so that if we add any padding or border on an element it doesn't effect the width of the page */
 * {
     box-sizing: border-box
@@ -8,44 +8,36 @@
   display: flex;
   align-items: center;
   width: 100vw;
-  background-color: rgb(30, 30, 30);
-  border: 2px solid rgb(22, 22, 22);
+  background-color: rgb(255, 255, 255);
+  border-bottom: 2px solid rgb(22, 22, 22);
   box-shadow: 10px 10px rgb(36, 36, 36);
-  border-radius: 18px;
-  padding: 10px;
-}*/
+  border-radius: 0 0 25px 25px;
+  background-image: url(/assets/images/New_Navbar_background_image.png);
+  background-size: 5;
+  background-position-x: -center;
+  background-position-y: 37%;
+  background-repeat: no-repeat;
+  /* background-position-x: -37%;
+  background-position-y: 40%; */
+  /* background-repeat: repeat-x; */
+  
 
-.navbar {
-  background-image: url(../images/New_Navbar_background_image.png);
-    height: 130px;
-    width: 100%;
-    background-repeat: no-repeat;
-  }
-
-  .button-56 {
-    width: 120px;
-  }
-
-
-.header {
-  display: flex;
-  align-items: center;
-  width: 100vw;
-  border: 2px solid rgb(22, 22, 22);
-  box-shadow: 10px 10px rgb(36, 36, 36);
-  border-radius: 18px;
+  height: 13vh;
 }
 
 .container {
   z-index: 9999;
 } 
 
-
+#movies-view {
+  padding-top: 0.2%;
+}
 
 .container h1 {
-  color: rgb(232, 232, 232);
-  margin-top: 10%;
+  color: rgb(0, 0, 0);
   font-size: 36px;
+  margin-top: 10%;
+  margin-bottom: 0%;
   
 }
 
@@ -56,7 +48,11 @@ body {
     align-items: center !important; 
     justify-content: center !important;
     background-color: rgb(46, 46, 46);
-    z-index: -100;
+    background-image: url(/assets/images/background_cow3.png);
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: 20%;
+    /* z-index: -100; */
     /* height: 100vh; */
     /* overflow: hidden; */
   }
@@ -147,7 +143,7 @@ body {
     padding-left: 6%;
     padding-top: 1%;
     display: block;
-    width: 36vw;
+    width: 38vw;
   
   }
 
@@ -197,6 +193,11 @@ body {
   padding-bottom: 1rem;
 
 }
+
+.details.active p.Director {
+
+}
+
 
 
 .details.active p.Actors {
@@ -251,6 +252,38 @@ body {
   padding-left: 1rem;
 }
 
+.discover #deleteDiv i {
+  font-size: 150%;
+  box-shadow: none;
+  /* background-color: white; */
+  border: none;
+  /* border-radius: 180px; */
+  color: #111;
+  padding: 0%;
+  width: 0;
+  position: absolute;
+}
+
+.discover #deleteDiv i:hover {
+  font-size: 150%;
+  box-shadow: none;
+  /* background-color: white; */
+  border: none;
+  /* border-radius: 180px; */
+  color: white;
+  padding: 0%;
+  width: 0;
+  position: absolute;
+}
+
+#deleteDiv {
+  position: relative;
+  width: 0%;
+  top: 0.9%;
+  left: 0%;
+
+}
+
 .details p.Plot {
     display: block;
     margin: 0;
@@ -285,13 +318,11 @@ body {
 }
 
 
-/* Watch and Seen lists*/
+
+
+
 
 #theLists {
-  /* align-items: center; */
-  /* justify-content: center; */
-  display: flex;
-  height: 50vh;
   display: flex;
   /* align-items: center; */
   justify-content:space-evenly;
@@ -299,6 +330,7 @@ body {
   width: 101vw;
   margin-top: 3%;
 }
+
 
 
 .discover i {
@@ -321,7 +353,7 @@ body {
   color: #c9c9c9;
 }
 
-#seenListCard li {
+#seenListDiv li {
   /* padding-left: 2em;
   padding-bottom: 1.5em; */
   display: flex;
@@ -339,11 +371,11 @@ body {
   /* justify-content:space-between; */
 }
 
-#seenListCard li:hover {
+#seenListDiv li:hover {
   background-color: #1a1a1a;
 }
 
-#watchListCard li {
+#watchListDiv li {
   /* padding-left: 2em;
   padding-bottom: 1.5em; */
   display: flex;
@@ -360,7 +392,7 @@ body {
   /* justify-content:space-between; */
 }
 
-#watchListCard li:hover {
+#watchListDiv li:hover {
   background-color: #1a1a1a;
 }
 
@@ -371,14 +403,17 @@ ul {
 
 
 
-.card-header {
-  font-size: xx-large;
-  font-weight: bolder;
+#seenListDiv h1 {
   margin-top: 2%;
   display: block;
   align-self: center;
 }
 
+#watchListDiv h1 {
+  margin-top: 2%;
+  display: block;
+  align-self: center;
+}
 
 #listButtonDiv i {
   font-size: 150%;
@@ -391,7 +426,7 @@ ul {
   
 }
 
-#seenListCard {
+#seenListDiv {
   display: flex;
   flex-direction: column;
   width: 48%;
@@ -404,7 +439,7 @@ ul {
   box-shadow: 10px 10px rgb(36, 36, 36);
 }
 
-#watchListCard {
+#watchListDiv {
   display: flex;
   flex-direction: column;
   width: 48%;
@@ -416,6 +451,64 @@ ul {
 }
 
 
+
+
+.button-56 {
+  margin-left: 14%;
+  align-items: center;
+  background-color: rgb(248,34,17);
+  margin-top: 1%;
+  border: 2px solid #111;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  display: flex;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  height: 48px;
+  justify-content: center;
+  line-height: 24px;
+  max-width: 100%;
+  padding: 0 25px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+
+}
+
+.button-56::after {
+  background-color: #111;
+  border-radius: 8px;
+  content: "";
+  display: block;
+  height: 48px;
+  left: 0;
+  width: 100%;
+  position: absolute;
+  top: -2px;
+  transform: translate(8px, 8px);
+  transition: transform .2s ease-out;
+  z-index: -1;
+}
+
+.button-56:hover:after {
+  transform: translate(0, 0);
+}
+
+.button-56:active {
+  background-color: #742929;
+  outline: 0;
+}
+
+.button-56:hover {
+  background-color: #a51717;
+  outline: 0;
+}
 
 @media only screen and (max-width: 780px) {
   #movies-view {
@@ -429,9 +522,27 @@ ul {
   /* colon is a pseudo-selector. It will get the last 2 of the .discover type (get 4 and 5, and don't display them if width is below 480pxs*/
 }
 
-@media only screen and (max-width: 1300px) {
+@media only screen and (max-width: 1350px) {
   .header {
-    background-color: blue;
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    background-color: rgb(30, 30, 30);
+    border-bottom: 2px solid rgb(22, 22, 22);
+    box-shadow: 10px 10px rgb(36, 36, 36);
+    border-radius: 0 0 25px 25px;
+    background-image: url(/assets/images/background_crop_ps2.png);
+    /* background-position-x: -37%;
+    background-position-y: 40%; */
+    /* background-repeat: repeat-x; */
+    background-size: 5;
+    background-position-x: 15%;
+    background-position-y: 37%;
+    background-repeat: no-repeat;
+    height: 13vh;
+  }
+  .header {
+    background-color: rgb(30, 30, 30);
   }
   .details.active p {
     opacity: 1 !important;
@@ -532,62 +643,143 @@ ul {
 }
 
 
-
-.button-56 {
-  margin-left: 14%;
-  align-items: center;
-  background-color: #c9c9c9;
-  margin-top: 4%;
-  border: 2px solid #111;
-  border-radius: 8px;
-  box-sizing: border-box;
-  color: #111;
-  cursor: pointer;
-  display: flex;
-  font-family: 'Roboto', sans-serif;
-  font-size: 16px;
-  height: 48px;
-  justify-content: center;
-  line-height: 24px;
-  max-width: 100%;
-  padding: 0 25px;
-  position: relative;
-  text-align: center;
-  text-decoration: none;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-
+@media only screen and (max-width: 1100px) {
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+  #movies-view {
+    display: flex;
+    flex-direction: column;
+  }
+  .header {
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    background-color: rgb(30, 30, 30);
+    border-bottom: 2px solid rgb(22, 22, 22);
+    box-shadow: 10px 10px rgb(36, 36, 36);
+    border-radius: 0 0 25px 25px;
+    background-image: url(/assets/images/background_crop_ps2.png);
+    /* background-position-x: -37%;
+    background-position-y: 40%; */
+    /* background-repeat: repeat-x; */
+    background-size: 5;
+    background-position-x: 15%;
+    background-position-y: 37%;
+    background-repeat: no-repeat;
+    height: 13vh;
+  }
+  .header {
+    background-color: rgb(30, 30, 30);
+  }
+  .details.active p {
+    opacity: 1 !important;
+    padding-top: 1%;
+    display: block;
+    width: 45vw; 
+  }
+  #buttonDiv {
+    justify-content: space-evenly;
+    display: flex;
+    padding-top: 1rem;
+    padding-left: 1rem;
+  }
+  #theLists {
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    color: rgb(232, 232, 232);
+    width: 101vw;
+    margin-top: 15%;
+    flex-direction: column;
+  }
+  .discover i {
+    font-size: 70%;
+    padding-right: 0rem;;
+    z-index: 1;
+    padding: 0.8rem;
+    padding-right: 1.9rem;
+    color: rgb(45, 45, 45);
+    border: 2px solid rgb(22, 22, 22);
+    border-radius: 18px;
+    background-color: #c9c9c9;
+    box-shadow: 10px 10px rgb(17, 17, 17);
+  }
+  .details.active p.Runtime {
+    display: block;
+    width: 150%;
+    margin-left: 1%;
+    color: rgb(165, 165, 165);
+  }
+  .discover .poster.active {
+    width: 19.6vw;
+    background-size: auto 100%; 
+    background-repeat: no-repeat;
+    border-radius: 18px;
+    transition: width 0.6s ease-in;
+  }
+  .discover.active {
+    flex: 9;
+    display: flex;
+    width: 100%;
+    height: 72vh;
+    background-image: none;
+  }
+  .discover {
+    margin-top: 1%;
+    display: flex;
+    flex-direction: row;
+    /* padding: 1em; */
+    border: 2px solid rgb(22, 22, 22);
+    border-radius: 18px;
+    background-color: rgb(30, 30, 30);
+    background-size: auto 100%; 
+    background-repeat: no-repeat;
+    height: 62vh;
+    cursor: pointer;
+    color: rgb(232, 232, 232);
+    flex: 0.4;
+    background-image: url(/assets/images/background_cow2.png);
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: 20%;
+    /* margin: 2px; */
+    position: relative;
+    transition: flex 0.7s ease-in;
+    box-shadow: 10px 10px rgb(36, 36, 36);
+    /* I am adding a transition on the flex property, so when this property changes it is not instantaneous */
+    /* I am making position relative so that I can make elements inside have position absolute */
+    /* flex will be the value that I will be changing for when the discover divs are active or inactive 
+    (how much space they will occupy relative to each other */
+    /* background-size auto is good for like centering a background image so that 
+    it does not warp the aspect ratio on different sizes. background-position also good for this.
+    background-repeat: no-repeat also highly recommended*/
+  }
+  #player {
+    position: absolute;
+    display: block;
+    /* padding-top: -5%; */
+    /* padding-right: 0.8%;  */
+    width: 33vw;
+    height: 60.5vh;
+    right: 0;
+    /* align-self: flex-end; */
+    /* display: inline-block; */
+    border-radius: 18px;
+  }
+  #theLists {
+    display: flex;
+    /* align-items: center; */
+    justify-content:space-evenly;
+    color: rgb(232, 232, 232);
+    width: 101vw;
+    margin-top: 10%;
+  }
 }
 
-.button-56::after {
-  background-color: #111;
-  border-radius: 8px;
-  content: "";
-  display: block;
-  height: 48px;
-  left: 0;
-  width: 100%;
-  position: absolute;
-  top: -2px;
-  transform: translate(8px, 8px);
-  transition: transform .2s ease-out;
-  z-index: -1;
-}
 
-.button-56:hover:after {
-  transform: translate(0, 0);
-}
 
-.button-56:active {
-  background-color: #808080;
-  outline: 0;
-}
-
-.button-56:hover {
-  background-color: #8c8c8c;
-  outline: 0;
-}
 
 @media (min-width: 768px) {
   .button-56 {
@@ -607,6 +799,19 @@ ul {
   } */
   
   
+  
+/*   
+  .details.active p {
+    opacity: 1 !important;
+    padding-left: 6%;
+    padding-top: 1%;
+    display: block;
+    width: 30vw;
+  
+  } */
+
+/* In the js logic we want to change the width of .details.active p to 30 */
+
   
   
   

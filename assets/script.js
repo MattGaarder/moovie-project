@@ -12,6 +12,7 @@ $("#find-movie").on("click", function (event) {
     $("#find-input").val("");
     event.preventDefault();
     OMDBInfoRequest(movieObject);
+
     // getTrailer()
 });
 
@@ -23,14 +24,6 @@ function OMDBInfoRequest(movieObject) {
         method: "GET"
     }).then(function (OMDBObject) {
         displayInfo(OMDBObject)
-        // displayInfo(OMDBObject);//Am commenting this out and putting this in the get trailer function
-        // movieObject = {
-        //     Title: OMDBObject.Title,
-        //     Year: OMDBObject.Year,
-        //     Poster: OMDBObject.Poster,
-        // }; // see comment above: I am going to define this object in the get trailer function
-        // console.log(movieObject);
-        // I am going to use OMDBObject as an argument rather than movieObject
     })
 };
 
@@ -38,10 +31,13 @@ function OMDBInfoRequest(movieObject) {
 function displayInfo(OMDBCall) {
     playerDiv = $("<div id='player'>");
     buttonDiv = $("<div id='buttonDiv'>");
+    deleteDiv = $("<div id='deleteDiv'>")
     discoverDiv = $("<div class='discover'>");
     posterDiv = $("<div class='poster'>");
     seenButton = $("<i id='seen' class='fa-solid fa-eye'></i>")
     watchButton = $("<i id='watch' class='fa-solid fa-square-plus'></i>");
+    deleteBtn = $("<i class='fa-solid fa-circle-xmark'></i>");
+    deleteBtn.addClass("delete-item-btn")
     // infoButton = $("<i class='fa-solid fa-circle-info'></i>")
     seenButton.text(" Seen");
     watchButton.text(" Watch");
@@ -82,12 +78,15 @@ function displayInfo(OMDBCall) {
     detailsDiv.addClass("active");
     posterDiv.addClass("active");
     posterDiv.css("background-image", "url(" + imageURL + ")");
+    deleteDiv.append(deleteBtn);
+    
     discoverDiv.append(posterDiv);
     discoverDiv.append(detailsDiv);
     discoverDiv.append(playerDiv);
     detailsDiv.append(buttonDiv);
     buttonDiv.append(watchButton);
     buttonDiv.append(seenButton);
+    discoverDiv.prepend(deleteDiv);
     // buttonDiv.append(infoButton);
     movieObject = {
         Title: OMDBCall.Title,
@@ -101,15 +100,12 @@ function displayInfo(OMDBCall) {
     watchButton.on('click', function () {
         moveToList(OMDBCall, 'watch');
     });
+    discoverActivePWidth();
 };
 
 
 
 function getTrailer(movieObject) {
-    // console.log(movieObject.Title);
-    console.log(movieObject);
-
-    console.log(movieObject);
     var queryParam = movieObject.Title;
     var queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=" + queryParam + " trailer&key=" + youtubeApiKey;
     $.ajax({
@@ -119,7 +115,6 @@ function getTrailer(movieObject) {
 
         // console.log(youtubeObject);
         movieObject["videoId"] = youtubeObject.items[0].id.videoId;
-        console.log(movieObject);
         discoverDiv.attr("data-videoid", youtubeObject.items[0].id.videoId);
         // appendElements(movieObject);
         onYouTubeIframeAPIReady(movieObject)
@@ -144,6 +139,7 @@ function onYouTubeIframeAPIReady(arbitrary) {
             'playsinline': 1
         },
     });
+
 }
 
 // I want to make it so that clicking on any of the list elements gets their info back up in the discover div
@@ -179,16 +175,25 @@ function applyActive() {
             clickedDiscover.append($("<div id='player'>"));
             onYouTubeIframeAPIReady(thingToSend);
         }, 10)
-
         console.log(clickedDiscover);
     }
-
 };
+
+
+function removeFromDiscover(event) {
+    var clickedElement = $(event.target);
+    console.log($(event.target).parent().parent())
+    console.log($(event.target).parent().parent().next())
+    clickedElement.parent().parent().next().addClass("active");
+    clickedElement.parent().parent().next().children().addClass("active");
+    console.log(clickedElement.parent().parent().next().children())
+    // clickedElement.parent().parent('div').remove();  
+}
 
 // I need to make it so that when active is applied the youtube player is removed from the active div
 // and then it is generated in the new active div. How to do this?
 // // removeBtn.parent('li').remove();
-
+moviesView.on('click', '.delete-item-btn', removeFromDiscover);
 moviesView.on('click', '.discover', applyActive);
 seenList.on('click', '.info-btn', infoFromListEl);
 watchList.on('click', '.info-btn', infoFromListEl);
@@ -380,7 +385,17 @@ seenListHeight();
 
 // Look up filter method.
 
-
+function discoverActivePWidth() {
+    var discoverAmount = $("#movies-view").children().length;
+    console.log($("#movies-view").children().length);
+    if(discoverAmount > 3) {
+        $(".discover.active p").css({"width": "28vw",
+        "padding-left": "3%"});
+        $(".discover .poster.active").css({"width": "16vw"})
+    } else {
+        return;
+    }
+}
 
 
 
