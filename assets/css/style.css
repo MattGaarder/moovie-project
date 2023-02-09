@@ -1,45 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,100&display=swap');
-
 /* Border-box allows it so that if we add any padding or border on an element it doesn't effect the width of the page */
 * {
-  box-sizing: border-box
-}
-
-/*Header*/
-/*.header {
-  display: flex;
-  align-items: center;
-  width: 100vw;
-  background-color: rgb(108, 13, 7);
-  border: 2px solid rgb(22, 22, 22);
-  box-shadow: 10px 10px rgb(36, 36, 36);
-  border-radius: 18px;
-  padding: 10px;
-}*/
-
-.navbar {
-  background-image: url(../images/Navbar_image_background.png);
-  height: 120px;
+    box-sizing: border-box
 }
 
 .header {
   display: flex;
   align-items: center;
   width: 100vw;
+  background-color: rgb(30, 30, 30);
   border: 2px solid rgb(22, 22, 22);
   box-shadow: 10px 10px rgb(36, 36, 36);
-  border-radius: 0 0 18px 18px;
+  border-radius: 18px;
 }
 
 .container {
   z-index: 9999;
 } 
 
+
+
 .container h1 {
   color: rgb(232, 232, 232);
   margin-top: 10%;
   font-size: 36px;
-
+  
 }
 
 body {
@@ -48,17 +33,23 @@ body {
     flex-direction: column !important;
     align-items: center !important; 
     justify-content: center !important;
-    /*background-color: rgb(108, 13, 7);*/
     background-color: rgb(46, 46, 46);
     z-index: -100;
     /* height: 100vh; */
     /* overflow: hidden; */
   }
   
+  #theLists {
+    /* align-items: center; */
+    /* justify-content: center; */
+    display: flex;
+    height: 50vh;
+  }
+
   
   #movies-view {
     display: flex;
-    height: 80vh;
+    height: 50vh;
     width: 98vw;
     margin: 0%;
     flex-direction: row;
@@ -70,14 +61,12 @@ body {
     display: flex;
     flex-direction: row;
     /* padding: 1em; */
-    
     border: 2px solid rgb(22, 22, 22);
     border-radius: 18px;
-    /*background-color: rgb(108, 13, 7);*/
     background-color: rgb(30, 30, 30);
     background-size: auto 100%; 
     background-repeat: no-repeat;
-    height: 70vh;
+    height: 50vh;
     cursor: pointer;
     color: rgb(232, 232, 232);
     flex: 0.4;
@@ -89,56 +78,56 @@ body {
     /* I am making position relative so that I can make elements inside have position absolute */
     /* flex will be the value that I will be changing for when the discover divs are active or inactive 
     (how much space they will occupy relative to each other */
-  /* background-size auto is good for like centering a background image so that 
+    /* background-size auto is good for like centering a background image so that 
     it does not warp the aspect ratio on different sizes. background-position also good for this.
     background-repeat: no-repeat also highly recommended*/
-}
+  }
+  
 
+  
+  
+  .details {
+    display: flex;
+    flex-direction: column;
+    margin: 0%;
+    padding: 0%;
+    opacity: 0;
+    transition: opacity 0.8s ease-in;
+    /* margin-left: 285px; */
+  }
 
+  .details {
+    /* display: none; */
+    /* transition: display 4s ease-in; */
+    width: 0vw;
+  }
 
+  .details p {
+    padding-left: 0%;
+    width: 30vw;
+    margin: 0%;
+    padding: 0.1%;
+    display: block;
+  }
 
-.details {
-  display: flex;
-  flex-direction: column;
-  margin: 0%;
-  padding: 0%;
-  opacity: 0;
-  transition: opacity 0.8s ease-in;
-  /* margin-left: 285px; */
-}
+  .details.active {
+    opacity: 1 !important;
+    /* padding-left: 24%; */
+    padding-top: 1%;
+    display: block;
+    width: 30vw;
+  
+  }
 
-.details {
-  /* display: none; */
-  /* transition: display 4s ease-in; */
-  width: 0vw;
-}
-
-.details p {
-  padding-left: 0%;
-  width: 30vw;
-  margin: 0%;
-  padding: 0.1%;
-  display: block;
-}
-
-.details.active {
-  opacity: 1 !important;
-  /* padding-left: 24%; */
-  padding-top: 1%;
-  display: block;
-  width: 30vw;
-
-}
-
-.details.active p {
-  opacity: 1 !important;
-  /* padding-left: 24%; */
-  padding-left: 6%;
-  padding-top: 1%;
-  display: block;
-  width: 36vw;
-
-}
+  .details.active p {
+    opacity: 1 !important;
+    /* padding-left: 24%; */
+    padding-left: 6%;
+    padding-top: 1%;
+    display: block;
+    width: 36vw;
+  
+  }
 
 .details.active p.Title {
   display: block;
@@ -153,15 +142,15 @@ body {
 }
 
 .details.active p.Year {
-  display: inline;
-  /* position: absolute; */
-  text-align: right;
-  color: rgb(165, 165, 165);
-  font-size: 35px;
-  width: 50%;
-  /* margin-left: 160px; */
-  margin-top: 0.1%;
-  opacity: 1;
+    display: inline;
+    /* position: absolute; */
+    text-align: right;
+    color: rgb(165, 165, 165);
+    font-size: 35px;
+    width: 50%;
+    /* margin-left: 160px; */
+    margin-top: 0.1%;
+    opacity: 1;
 }
 
 .details.active p.Rated {
@@ -191,6 +180,8 @@ body {
 
 }
 
+
+
 .details.active p.Actors {
   padding-bottom: 1rem;
 }
@@ -211,30 +202,28 @@ body {
 
 .discover .poster.active {
   width: 18.6vw;
-  background-size: auto 100%;
+  background-size: auto 100%; 
   background-repeat: no-repeat;
   border-radius: 18px 0 0 18px;
   transition: width 0.6s ease-in;
 }
-
 .discover .poster {
   width: 4vw;
-  background-size: auto 100%;
+  background-size: auto 100%; 
   background-repeat: no-repeat;
   border-radius: 18px;
   transition: width 0.6s ease-in;
 }
-
 .details.active p.Title {
   opacity: 1;
 }
 
 .details p.Rated {
-  display: inline;
-  padding-left: 0%;
-  width: 5%;
-  /* margin-left: 250px; */
-  margin-top: 10px;
+    display: inline;
+    padding-left: 0%;
+    width: 5%;
+    /* margin-left: 250px; */
+    margin-top: 10px;
 }
 
 #buttonDiv {
@@ -246,14 +235,18 @@ body {
 }
 
 .details p.Plot {
-  display: block;
-  margin: 0;
+    display: block;
+    margin: 0;
 }
 
 .details p.Runtime {
   display: inline-block;
   /* margin-top: 5px; */
 }
+
+
+
+
 
 .discover.active {
   flex: 9;
@@ -282,7 +275,7 @@ body {
 #theLists {
   display: flex;
   /* align-items: center; */
-  justify-content: space-evenly;
+  justify-content:space-evenly;
   color: rgb(232, 232, 232);
   width: 101vw;
   margin-top: 3%;
@@ -294,8 +287,7 @@ body {
   font-size: 100%;
   max-width: 40%;
   padding: 0.25rem;
-  padding-right: 0.5rem;
-  ;
+  padding-right: 0.5rem;;
   z-index: 1;
   padding: 0.8rem;
   padding-right: 1.9rem;
@@ -322,10 +314,10 @@ body {
   width: 100%;
   padding: 0.5rem;
   margin: 0.5rem;
-  padding-left: 25px;
+  padding-left:25px;
   background-color: #343434;
   border-radius: 20px;
-
+  
   /* justify-content:space-between; */
 }
 
@@ -344,7 +336,7 @@ body {
   width: 100%;
   padding: 0.5rem;
   margin: 0.5rem;
-  padding-left: 25px;
+  padding-left:25px;
   background-color: #343434;
   border-radius: 20px;
   /* justify-content:space-between; */
@@ -376,13 +368,12 @@ ul {
 #listButtonDiv i {
   font-size: 150%;
   padding: 0.25rem;
-  padding-right: 0.5rem;
-  ;
+  padding-right: 0.5rem;;
 }
 
 #listButtonDiv i:hover {
   color: rgb(85, 85, 85);
-
+  
 }
 
 #seenListDiv {
@@ -415,13 +406,11 @@ ul {
   #movies-view {
     width: 100vw;
   }
-
   .discover:nth-of-type(3),
   .discover:nth-of-type(4),
   .discover:nth-of-type(5) {
     display: none;
   }
-
   /* colon is a pseudo-selector. It will get the last 2 of the .discover type (get 4 and 5, and don't display them if width is below 480pxs*/
 }
 
@@ -429,33 +418,28 @@ ul {
   .header {
     background-color: blue;
   }
-
   .details.active p {
     opacity: 1 !important;
     padding-top: 1%;
     display: block;
-    width: 33vw;
+    width: 33vw; 
   }
-
   #buttonDiv {
     justify-content: space-evenly;
     display: flex;
     padding-top: 1rem;
     padding-left: 1rem;
   }
-
   #theLists {
     display: flex;
-    justify-content: space-evenly;
+    justify-content:space-evenly;
     color: rgb(232, 232, 232);
     width: 101vw;
     margin-top: 15%;
   }
-
   .discover i {
     font-size: 70%;
-    padding-right: 0rem;
-    ;
+    padding-right: 0rem;;
     z-index: 1;
     padding: 0.8rem;
     padding-right: 1.9rem;
@@ -465,29 +449,25 @@ ul {
     background-color: #c9c9c9;
     box-shadow: 10px 10px rgb(17, 17, 17);
   }
-
   .details.active p.Runtime {
     display: block;
     width: 150%;
     margin-left: 1%;
     color: rgb(165, 165, 165);
   }
-
   .discover .poster.active {
     width: 19.6vw;
-    background-size: auto 100%;
+    background-size: auto 100%; 
     background-repeat: no-repeat;
     border-radius: 18px;
     transition: width 0.6s ease-in;
   }
-
   .discover.active {
     flex: 9;
     display: flex;
     width: 100%;
     height: 62vh;
   }
-
   .discover {
     margin-top: 1%;
     display: flex;
@@ -496,7 +476,7 @@ ul {
     border: 2px solid rgb(22, 22, 22);
     border-radius: 18px;
     background-color: rgb(30, 30, 30);
-    background-size: auto 100%;
+    background-size: auto 100%; 
     background-repeat: no-repeat;
     height: 62vh;
     cursor: pointer;
@@ -514,7 +494,6 @@ ul {
     it does not warp the aspect ratio on different sizes. background-position also good for this.
     background-repeat: no-repeat also highly recommended*/
   }
-
   #player {
     position: absolute;
     display: block;
@@ -527,11 +506,10 @@ ul {
     /* display: inline-block; */
     border-radius: 18px;
   }
-
   #theLists {
     display: flex;
     /* align-items: center; */
-    justify-content: space-evenly;
+    justify-content:space-evenly;
     color: rgb(232, 232, 232);
     width: 101vw;
     margin-top: 10%;
@@ -600,15 +578,34 @@ ul {
   .button-56 {
     padding: 0 40px;
   }
-}
+} 
 
 
 
-
-/* @use postcss-preset-env {
+  
+  /* @use postcss-preset-env {
     stage: 0;
     autoprefixer: {
       grid: true;
     }
     browsers: last 2 versions
   } */
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
