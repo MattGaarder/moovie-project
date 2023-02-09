@@ -12,7 +12,7 @@ Repo URL: https://github.com/MattGaarder/moovie-project
 Website URL: https://mattgaarder.github.io/moovie-project/
 
 ## Screenshot
-! [alt text: screetshot of the moooovie web project](./assets/Screenshot_TBC.jpeg)
+! [alt text: screetshot of the moooovie web project](./assets/screenshot.png)
 
 ## Contact
 For further details and follow-up: Matt Gaarder, Milda Jancauskaite, Anna Bessant
