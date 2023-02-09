@@ -17,9 +17,16 @@
 }*/
 
 .navbar {
-  background-image: url(../images/Navbar_image_background.png);
-  height: 120px;
-}
+  background-image: url(../images/New_Navbar_background_image.png);
+    height: 130px;
+    width: 100%;
+    background-repeat: no-repeat;
+  }
+
+  .button-56 {
+    width: 120px;
+  }
+
 
 .header {
   display: flex;
